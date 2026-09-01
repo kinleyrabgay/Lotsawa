@@ -230,20 +230,29 @@ model downloads once across pod restarts.
 python prepare_data.py --csv ../dataset.csv --out /workspace/data/dz_en_bidi
 ```
 
-Expected output:
+Expected output when pulling from the Hub (authoritative):
 
 ```
 Loaded: {'train': 225565, 'validation': 3436, 'test': 3488}
-Train: kept 219560, dropped 1457 dupes, 4548 leaked
+Train: kept 219461, dropped 1482 dupes, 4622 leaked
 Orthography restoration: ON
-Final: {'train': 439120, 'validation': 6872, 'test': 6976}
+Final: {'train': 438922, 'validation': 6872, 'test': 6976}
 ```
 
-439,120 = 219,560 pairs × 2 directions. If your numbers differ, stop and find out
-why before training.
+438,922 = 219,461 pairs × 2 directions.
 
-Use `--dataset kinleyrabgay/dz_to_en` instead of `--csv` if you would rather pull
-from the Hub — that repo is private, so `HF_TOKEN` must be set.
+The `--csv` path yields 438,922 vs 439,120 — a 0.045% difference. `CSV_SPLITS` in
+`prepare_data.py` assumes the CSV rows sit in the same order as the Hub's splits;
+the totals and split sizes match exactly, but a few rows land on different sides
+of a boundary, which shifts the dupe and leakage counts slightly. **Prefer
+`--dataset` when you can authenticate** — it uses the real split membership. Both
+are usable; just do not mix them across a baseline and a fine-tune, since the test
+sets would differ.
+
+`--csv ../dataset.csv` is the fallback when you cannot authenticate to the Hub.
+It reconstructs the splits by row order and lands within 0.05% of the real
+membership — fine on its own, but do not mix the two paths across a baseline and
+a fine-tune, or the test sets will not match.
 
 ---
 
