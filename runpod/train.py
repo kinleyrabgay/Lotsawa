@@ -23,7 +23,7 @@ from datetime import datetime, timezone
 import numpy as np
 import sacrebleu
 import torch
-from datasets import concatenate_datasets, load_dataset, load_from_disk
+from datasets import concatenate_datasets, load_from_disk
 from transformers import (
     AutoModelForSeq2SeqLM,
     AutoTokenizer,
@@ -304,13 +304,10 @@ def main():
     # just need a checkpoint-selection signal. Full per-direction scores come
     # from the final test pass below.
     if args.eval_flores:
+        import flores as flores_loader
         from datasets import Dataset as _Dataset
-        flores = load_dataset("openlanguagedata/flores_plus", DZ, split="dev")
-        flores_en = load_dataset("openlanguagedata/flores_plus", EN, split="dev")
-        by_id = {r["id"]: r["text"] for r in flores_en}
-        rows = [{"src": r["text"], "tgt": by_id[r["id"]],
-                 "src_lang": DZ, "tgt_lang": EN}
-                for r in flores if r["id"] in by_id]
+        rows = [{"src": dz, "tgt": en, "src_lang": DZ, "tgt_lang": EN}
+                for dz, en in flores_loader.load("dev")]
         print(f"Checkpoint selection on FLORES-200 dev: {len(rows)} sentences")
         val_dz_en = _Dataset.from_list(rows)
     else:
