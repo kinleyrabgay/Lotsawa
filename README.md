@@ -98,3 +98,6 @@ shad-restored input — the checkpoint carries the contract that describes it.
 
 Note that NLLB-200's CC-BY-NC licence is **non-commercial**. Confirm the licensing
 path before shipping a paid product on top of it.
+
+
+python demo.py --model /workspace/ckpt --cpu
