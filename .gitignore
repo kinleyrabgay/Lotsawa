@@ -1,0 +1,28 @@
+# local virtualenv (pod installs from requirements.txt instead)
+.venv/
+__pycache__/
+*.pyc
+
+# derived artifacts — rebuilt by prepare_data.py in about a minute
+runpod/data/dz_en_bidi/
+
+# corpora are not published here.
+#   dataset.csv       — the parallel corpus; kept private (also on HF as
+#                       kinleyrabgay/dz_to_en, private)
+#   data/dz_mono.txt  — 60,750 Kuensel-derived sentences. The FineTranslations
+#                       extraction is ODC-BY, but the source articles remain
+#                       their publishers' property. Rebuild it with
+#                       `python runpod/fetch_monolingual.py`.
+dataset.csv
+runpod/data/dz_mono.txt
+
+# training output
+runpod/ckpt*/
+ckpt*/
+wandb/
+logs/
+*.tar.gz
+
+# evaluation results are worth keeping; checkpoints are not
+!*_flores.json
+!*_own.json
