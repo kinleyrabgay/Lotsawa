@@ -296,7 +296,7 @@ measured, and re-deriving them costs GPU time.
 | GPU | Flags |
 |---|---|
 | **RTX 4090 (24GB)** | `--batch 32` — drop to `--batch 16 --grad-accum 2` if OOM at `--max-length 128` |
-| A40 / L40S / A100 (48GB+) | `--batch 32`, or higher — you have the room |
+| L40S / A100 / RTX PRO 6000 (48GB+) | `--batch 32`, or higher — you have the room |
 | T4 / V100 (no bf16) | `--batch 8 --grad-accum 4 --fp16` |
 | NLLB-1.3B (needs 48GB+) | `--model facebook/nllb-200-1.3B --batch 8 --grad-accum 4 --grad-checkpointing --lr 1e-5` |
 
