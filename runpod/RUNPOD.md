@@ -298,6 +298,17 @@ shaped by. Expect a much smaller gain there, and treat that as the honest number
 
 ## Step 6 — First training run
 
+First validate the whole loop in ~2 minutes — a few steps plus one eval,
+generation, metrics pass and checkpoint save:
+
+```bash
+python train.py --data /workspace/data/dz_en_bidi --out /tmp/smoke --smoke
+rm -rf /tmp/smoke
+```
+
+Wait for `SMOKE RUN PASSED`. It exercises every code path the real run uses, so a
+loop bug surfaces here rather than at step 4000.
+
 ```bash
 tmux new -s train        # so an SSH drop does not kill 5 hours of work
 

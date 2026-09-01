@@ -31,6 +31,7 @@ from transformers import (
     Seq2SeqTrainer,
     Seq2SeqTrainingArguments,
 )
+from transformers.models.m2m_100.modeling_m2m_100 import shift_tokens_right
 
 DZ = "dzo_Tibt"
 EN = "eng_Latn"
@@ -100,6 +101,35 @@ def build_metrics(tokenizer, target_lang):
         return {"bleu": bleu.score, "chrf2": chrf.score}
 
     return compute
+
+
+class Collator(DataCollatorForSeq2Seq):
+    """DataCollatorForSeq2Seq that always supplies decoder_input_ids.
+
+    NLLB is an M2M100 model, and M2M100ForConditionalGeneration does not define
+    `prepare_decoder_input_ids_from_labels`, so the stock collator never sets
+    `decoder_input_ids`. That is normally fine: the model shifts `labels` itself.
+
+    But `label_smoothing_factor` makes the Trainer pop `labels` out of the inputs
+    so it can compute the smoothed loss on its own -- leaving the model with
+    neither labels nor decoder_input_ids, which fails with
+
+        ValueError: You have to specify either decoder_input_ids or
+        decoder_inputs_embeds
+
+    So build them here. Label padding is -100 to keep it out of the loss, and
+    that has to become a real pad token before shifting.
+    """
+
+    def __call__(self, features, return_tensors=None):
+        batch = super().__call__(features, return_tensors)
+        if "labels" in batch and "decoder_input_ids" not in batch:
+            pad_id = self.model.config.pad_token_id
+            labels = batch["labels"].masked_fill(batch["labels"] == -100, pad_id)
+            batch["decoder_input_ids"] = shift_tokens_right(
+                labels, pad_id, self.model.config.decoder_start_token_id
+            )
+        return batch
 
 
 def sha256(path):
@@ -212,6 +242,11 @@ def main():
     ap.add_argument("--grad-checkpointing", action="store_true")
     ap.add_argument("--fp16", action="store_true", help="Only for pre-Ampere GPUs")
     ap.add_argument("--resume", action="store_true")
+    ap.add_argument("--smoke", action="store_true",
+                    help="Run the entire loop end to end in ~2 minutes: a handful "
+                         "of steps, one eval with generation and metrics, and one "
+                         "checkpoint save. Catches loop bugs before you commit "
+                         "hours. Never pushes to the Hub.")
     ap.add_argument("--save-total-limit", type=int, default=2,
                     help="Rotating checkpoints kept on disk, plus the best one, "
                          "which is exempt from rotation. Each 600M checkpoint is "
@@ -244,6 +279,12 @@ def main():
                  if len(train_parts) > 1 else train_parts[0])
     print(f"Training rows: {len(train_raw)}")
 
+    if args.smoke:
+        print("SMOKE RUN -- validating the training loop, not training a model")
+        train_raw = train_raw.shuffle(seed=42).select(range(512))
+        args.eval_subset = 16
+        args.hub_id = ""
+
     train_ds = tokenize_by_direction(train_raw, tokenizer, args.max_length).shuffle(seed=42)
 
     # Written before training starts, so even an interrupted run leaves a record
@@ -266,16 +307,17 @@ def main():
     model.generation_config.forced_bos_token_id = eng_bos
     model.generation_config.max_length = args.max_length
 
-    collator = DataCollatorForSeq2Seq(
+    collator = Collator(
         tokenizer=tokenizer, model=model, label_pad_token_id=-100, pad_to_multiple_of=8
     )
 
     training_args = Seq2SeqTrainingArguments(
         output_dir=args.out,
+        max_steps=8 if args.smoke else -1,
         eval_strategy="steps",
-        eval_steps=args.eval_steps,
+        eval_steps=4 if args.smoke else args.eval_steps,
         save_strategy="steps",
-        save_steps=args.eval_steps,
+        save_steps=4 if args.smoke else args.eval_steps,
         save_total_limit=args.save_total_limit,
         logging_steps=100,
         learning_rate=args.lr,
@@ -314,6 +356,12 @@ def main():
     )
 
     result = trainer.train(resume_from_checkpoint=args.resume or None)
+
+    if args.smoke:
+        print("\nSMOKE RUN PASSED -- training, evaluation, generation, metrics and "
+              "checkpointing all work.")
+        print(f"Delete the smoke output before the real run:  rm -rf {args.out}")
+        return
     trainer.save_model(args.out)
     tokenizer.save_pretrained(args.out)
     trainer.log_metrics("train", result.metrics)
