@@ -29,8 +29,8 @@ python normalize.py ../dataset.csv | head -60
 |---|---|
 | GPU | **RTX 5090 32GB** — $0.99/hr (or RTX 4090 24GB, $0.74/hr) |
 | Template | CUDA **12.8+** / PyTorch **2.7+** for the 5090 — see below |
-| Network volume | **50GB**, mounted at `/workspace` |
-| Container disk | 20GB is fine — nothing large is written to it |
+| Network volume | **50GB** (100GB for comfort), mounted at `/workspace` |
+| Container disk | **30GB** — the default is fine, nothing large lands here |
 
 The 600M fine-tune needs roughly 13–16GB including optimizer states and
 activations at `--max-length 128`, so 24GB fits with headroom. Rent 48GB+ when
@@ -70,6 +70,45 @@ short sequences.
 Its 32GB also removes any OOM risk at `--max-length 128`, and 12 vCPU beats the
 4090 offering's 8. Take the 4090 only if you would rather not deal with template
 versions.
+
+### Storage budget
+
+Container disk holds only the OS and pip packages, because `HF_HOME` points at
+`/workspace` (Step 3). The default 30GB is plenty and it is erased when the pod
+stops — nothing you care about lives there.
+
+The network volume is the one to size. A 600M checkpoint is bigger than the
+model, because it carries the optimizer state needed to resume:
+
+```
+model.safetensors    2.46 GB    615M params, fp32
+optimizer.pt         4.92 GB    Adam m + v states
+                   ──────────
+                   ~7.4 GB per checkpoint
+```
+
+| Item | Size |
+|---|---|
+| HF cache for NLLB-600M | ~5 GB (ships both `.bin` and `.safetensors`) |
+| Checkpoints, `--save-total-limit 2` + the exempt best | ~22 GB |
+| Final saved model | 2.5 GB |
+| All datasets (corpus, monolingual, prepared, synthetic) | <0.5 GB |
+| **Total, one training run** | **~30 GB** |
+
+So 50GB fits one run comfortably and **two runs not at all**. Between Step 6 and
+Step 8, once the first model is safely on the Hub, drop the optimizer states —
+back-translation only needs the weights:
+
+```bash
+du -sh /workspace/ckpt
+rm -rf /workspace/ckpt/checkpoint-*      # keeps the final model, frees ~22GB
+du -sh /workspace/ckpt
+```
+
+If you would rather not think about it, provision **100GB**. Volume storage runs
+about $0.07/GB/month, so the extra 50GB is roughly $3.50/month — trivial next to
+the GPU spend, and it lets you keep both runs' checkpoints side by side for
+comparison.
 
 Three things that bite people:
 

@@ -212,10 +212,13 @@ def main():
     ap.add_argument("--grad-checkpointing", action="store_true")
     ap.add_argument("--fp16", action="store_true", help="Only for pre-Ampere GPUs")
     ap.add_argument("--resume", action="store_true")
-    ap.add_argument("--save-total-limit", type=int, default=5,
-                    help="Rotating checkpoints kept on disk. The best checkpoint "
-                         "is exempt from rotation, so this bounds the recent "
-                         "history you can roll back to.")
+    ap.add_argument("--save-total-limit", type=int, default=2,
+                    help="Rotating checkpoints kept on disk, plus the best one, "
+                         "which is exempt from rotation. Each 600M checkpoint is "
+                         "~7.4GB (2.46GB weights + 4.92GB Adam states), so the "
+                         "default holds ~22GB -- sized for a 50GB network volume "
+                         "that also caches the base model. Raise it only if you "
+                         "provisioned more disk.")
     args = ap.parse_args()
 
     bf16 = not args.fp16 and torch.cuda.is_bf16_supported()
