@@ -27,8 +27,8 @@ python normalize.py ../dataset.csv | head -60
 
 | Setting | Value |
 |---|---|
-| GPU | **RTX 4090 24GB** — $0.74/hr |
-| Template | `runpod/pytorch:2.4.0-py3.11-cuda12.4.1` |
+| GPU | **RTX 5090 32GB** — $0.99/hr (or RTX 4090 24GB, $0.74/hr) |
+| Template | CUDA **12.8+** / PyTorch **2.7+** for the 5090 — see below |
 | Network volume | **50GB**, mounted at `/workspace` |
 | Container disk | 20GB is fine — nothing large is written to it |
 
@@ -42,22 +42,34 @@ Observed RunPod pricing — check the live page, these move:
 
 | GPU | $/hr | VRAM | Gen | Notes |
 |---|---|---|---|---|
-| **RTX 4090** | **0.74** | 24GB | Ada | **Default.** Fast, and Ada works on the template above |
-| RTX 3090 | 0.50 | 24GB | Ampere | ~1.4× slower, 32% cheaper — total cost is roughly a wash. 32 vCPU is the best CPU on offer |
-| RTX PRO 4000 | 0.57 | 24GB | Blackwell | Cheaper, but see the template warning |
-| RTX 5090 | 0.99 | 32GB | Blackwell | Fastest cheap option, ~1.8× the 4090's bandwidth |
+| **RTX 5090** | **0.99** | 32GB | Blackwell | **Best value.** ~1.4–1.7× a 4090, so *lower total cost* despite the hourly rate. 12 vCPU / 100GB RAM. Needs a CUDA 12.8+ template |
+| RTX 4090 | 0.74 | 24GB | Ada | Safe fallback — no template risk. Only 8 vCPU |
+| RTX 3090 | 0.50 | 24GB | Ampere | Cheapest. ~1.4× slower than a 4090, so total cost is a wash. 32 vCPU |
+| RTX PRO 4000 | 0.57 | 24GB | Blackwell | Cheaper than the 4090, same template requirement as the 5090 |
 | L40S | 0.99 | 48GB | Ada | For Stage 3 / NLLB-1.3B |
 | A100 SXM | 1.59 | 80GB | Ampere | For Stage 3 / NLLB-3.3B |
 | RTX PRO 6000 | 2.09 | 96GB | Blackwell | Only for 3.3B |
 
 > **Blackwell needs a newer template.** RTX 5090, RTX PRO 4000/4500/6000 and
-> PRO 6000 MIG are Blackwell (sm_120), which the `pytorch:2.4.0-cuda12.4.1`
-> template above does **not** support — you get `no kernel image is available
-> for execution on the device`. Those cards need CUDA 12.8+ and PyTorch 2.7+.
-> The RTX 4090 and 3090 are Ada and Ampere respectively and carry no such risk.
+> PRO 6000 MIG are Blackwell (sm_120). A CUDA 12.4 template has no kernels for
+> them and fails with `no kernel image is available for execution on the
+> device`. Choose a template whose tag shows **CUDA 12.8+ and PyTorch 2.7+**,
+> and run the verification in Step 3 before starting a long job. The RTX 4090
+> (Ada) and 3090 (Ampere) work on CUDA 12.1+ and carry no such risk.
 
-Full pipeline (Steps 4–8, both training runs) lands around 12–16 GPU hours,
-so **$9–12 on a 4090**.
+### Why the 5090 costs less despite the higher rate
+
+Peak specs are ~1.9× a 4090; realistically expect 1.4–1.7× on a 600M model with
+short sequences.
+
+```
+4090:  ~14h x $0.74  =  $10.4
+5090:  ~9h  x $0.99  =  $9.2     <- cheaper, and finishes ~5h sooner
+```
+
+Its 32GB also removes any OOM risk at `--max-length 128`, and 12 vCPU beats the
+4090 offering's 8. Take the 4090 only if you would rather not deal with template
+versions.
 
 Three things that bite people:
 
@@ -108,10 +120,34 @@ long-term, and you should be versioning this anyway.
 cd /workspace/runpod
 export HF_HOME=/workspace/hf          # keep the 2.4GB model cache off the container disk
 echo 'export HF_HOME=/workspace/hf' >> ~/.bashrc
-pip install -r requirements.txt
+pip install -r requirements.txt       # deliberately does NOT install torch
 huggingface-cli login --token $HF_TOKEN
 nvidia-smi                            # confirm the GPU is what you paid for
 ```
+
+`requirements.txt` omits `torch` on purpose: the template ships a build compiled
+against the pod's exact CUDA version, and letting pip replace it with a wheel for
+a different CUDA breaks at the first kernel launch.
+
+**Verify the GPU actually runs a kernel before starting a multi-hour job.**
+`torch.cuda.is_available()` can return `True` on a card whose architecture the
+build does not support, so run a real matmul:
+
+```bash
+python -c "
+import torch
+print('torch', torch.__version__, 'cuda', torch.version.cuda)
+print('gpu  ', torch.cuda.get_device_name(0))
+print('sm   ', torch.cuda.get_device_capability(0))
+print('bf16 ', torch.cuda.is_bf16_supported())
+x = torch.randn(2048, 2048, device='cuda', dtype=torch.bfloat16)
+print('matmul ok:', float((x @ x).sum()) == float((x @ x).sum()))
+"
+```
+
+On a 5090 expect `sm (12, 0)` and `cuda 12.8` or higher. If the matmul raises
+`no kernel image is available`, the template is too old — destroy the pod and
+pick a CUDA 12.8+ one.
 
 `HF_HOME` matters. The default cache lives on the container disk, which is small
 and does not survive the pod. Pointing it at the network volume also means the

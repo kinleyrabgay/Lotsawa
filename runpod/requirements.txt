@@ -1,9 +1,23 @@
+# torch is deliberately NOT listed here.
+#
+# RunPod's PyTorch templates ship a build compiled against the pod's exact CUDA
+# version. Letting pip install or upgrade torch can replace it with a wheel
+# built for a different CUDA, which fails at the first kernel launch -- and on
+# Blackwell cards (RTX 5090, RTX PRO series, sm_120) it fails with
+# "no kernel image is available for execution on the device".
+#
+# Use the template's torch. Verify before training:
+#   python -c "import torch; print(torch.__version__, torch.version.cuda, \
+#       torch.cuda.get_device_capability(0))"
+#
+# Blackwell needs torch >= 2.7 and CUDA >= 12.8. Ada (4090) and Ampere (3090)
+# work on CUDA 12.1+.
+
 transformers==4.46.3
 datasets==3.1.0
 accelerate==1.1.1
 sentencepiece==0.2.0
 sacrebleu==2.4.3
 evaluate==0.4.3
-torch>=2.4.0
 wandb==0.18.7
 huggingface_hub>=0.26.0
