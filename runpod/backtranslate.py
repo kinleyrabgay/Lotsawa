@@ -23,6 +23,7 @@ long-sentence and news-register signal that nothing else in your data provides.
 """
 
 import argparse
+import random
 import re
 
 import torch
@@ -35,6 +36,7 @@ EN = "eng_Latn"
 TIBETAN_DIGITS = "༠༡༢༣༤༥༦༧༨༩"
 ARABIC_DIGITS = "0123456789"
 TIB_TO_ARABIC = str.maketrans(TIBETAN_DIGITS, ARABIC_DIGITS)
+ARABIC_TO_TIB = str.maketrans(ARABIC_DIGITS, TIBETAN_DIGITS)
 
 # Prepended to the synthetic English source only. The model learns that tagged
 # input is machine-made and should be trusted less than untagged input, which
@@ -46,6 +48,53 @@ BT_TAG = "<bt> "
 def digits_in(text):
     """Digit sequences in a string, with Tibetan numerals folded to Arabic."""
     return set(re.findall(r"\d+", text.translate(TIB_TO_ARABIC)))
+
+
+def digit_conflict(dz, en):
+    """True only when the English contradicts the Dzongkha numbers.
+
+    Naively requiring digits_in(dz) == digits_in(en) is wrong. Measured on real
+    Kuensel sentences, the dz->en model spells small numbers as English words
+    ("Ten army officers") while keeping large ones as digits ("350 meters"). A
+    spelled-out number is not an error -- and the pair "Ten ..." / "...༡༠..." is
+    precisely the word-to-digit mapping en->dz needs to learn, since published
+    Dzongkha writes numerals as Tibetan digits.
+
+    So reject only a real contradiction: the English states digits that differ
+    from the Dzongkha's. English with no digits at all is kept.
+    """
+    en_d = digits_in(en)
+    if not en_d:
+        return False
+    return en_d != digits_in(dz)
+
+
+def substitute_digits(dz, en, rng):
+    """Swap every number in an aligned pair for a different one, consistently.
+
+    Only valid when both sides carry the same digits. Turns one numeral example
+    into many, which is how a corpus with 0.00% digit coverage learns arithmetic
+    surface forms without inventing Dzongkha grammar.
+    """
+    numbers = sorted(digits_in(dz), key=len, reverse=True)
+    if not numbers:
+        return None
+    new_dz, new_en = dz, en
+    for i, num in enumerate(numbers):
+        # Same digit count keeps the result plausible (a year stays a year).
+        lo = 10 ** (len(num) - 1) if len(num) > 1 else 0
+        hi = 10 ** len(num) - 1
+        repl = str(rng.randint(lo, hi)).zfill(len(num))
+        if repl == num:
+            return None
+        hole = f"\x00{i}\x00"
+        new_en = new_en.replace(num, hole)
+        new_dz = new_dz.replace(num.translate(ARABIC_TO_TIB), hole)
+        new_en = new_en.replace(hole, repl)
+        new_dz = new_dz.replace(hole, repl.translate(ARABIC_TO_TIB))
+    if new_dz == dz or new_en == en:
+        return None
+    return new_dz, new_en
 
 
 def has_repetition(text, n=4, limit=3):
@@ -82,6 +131,11 @@ def main():
                     help="Keep pairs whose digits do not round-trip. Use when the "
                          "digit-mismatch drop rate is high because the model spells "
                          "numbers as Dzongkha words instead of digits.")
+    ap.add_argument("--digit-aug", type=int, default=4,
+                    help="Extra copies of each digit-preserving pair, with the "
+                         "numbers substituted consistently on both sides. 0 to "
+                         "disable.")
+    ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--min-ratio", type=float, default=0.25)
     ap.add_argument("--max-ratio", type=float, default=3.0)
     args = ap.parse_args()
@@ -109,6 +163,8 @@ def main():
     pairs = []
     dropped = {"empty": 0, "ratio": 0, "repeat": 0, "digits": 0}
     digit_samples = []
+    augmented = 0
+    rng = random.Random(args.seed)
 
     for start in range(0, len(lines), args.batch):
         batch = lines[start:start + args.batch]
@@ -139,23 +195,37 @@ def main():
             # the reported drop rate on a --limit run; if it is high, the filter is
             # discarding the very sentences this data exists to provide, and
             # --no-digit-filter is the escape hatch.
-            if not args.no_digit_filter and digits_in(dz) != digits_in(en):
+            if not args.no_digit_filter and digit_conflict(dz, en):
                 dropped["digits"] += 1
                 if len(digit_samples) < 5:
                     digit_samples.append((dz[:70], en[:70]))
                 continue
-            pairs.append({
-                "src": en if args.no_tag else BT_TAG + en,
-                "tgt": dz,
-                "src_lang": EN,
-                "tgt_lang": DZ,
-            })
+            def emit(dz_text, en_text):
+                pairs.append({
+                    "src": en_text if args.no_tag else BT_TAG + en_text,
+                    "tgt": dz_text,
+                    "src_lang": EN,
+                    "tgt_lang": DZ,
+                })
+
+            emit(dz, en)
+
+            # Where the numbers round-trip as digits on both sides, multiply the
+            # example. This is the cheapest route to numeral coverage: the corpus
+            # has none, and the substitution is arithmetic, not grammar.
+            if args.digit_aug and digits_in(dz) and digits_in(dz) == digits_in(en):
+                for _ in range(args.digit_aug):
+                    variant = substitute_digits(dz, en, rng)
+                    if variant:
+                        emit(*variant)
+                        augmented += 1
 
         done = start + len(batch)
         if done % (args.batch * 20) == 0:
             print(f"  {done}/{len(lines)}  kept {len(pairs)}")
 
-    print(f"\nKept {len(pairs)} synthetic pairs")
+    print(f"\nKept {len(pairs)} synthetic pairs "
+          f"({augmented} from digit augmentation)")
     print(f"Dropped -- empty {dropped['empty']}, length ratio {dropped['ratio']}, "
           f"repetition {dropped['repeat']}, digit mismatch {dropped['digits']}")
 
