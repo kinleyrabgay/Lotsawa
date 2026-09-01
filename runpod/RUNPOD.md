@@ -27,17 +27,37 @@ python normalize.py ../dataset.csv | head -60
 
 | Setting | Value |
 |---|---|
-| GPU | **RTX 4090 24GB** (Community Cloud) |
+| GPU | **RTX 4090 24GB** — $0.74/hr |
 | Template | `runpod/pytorch:2.4.0-py3.11-cuda12.4.1` |
 | Network volume | **50GB**, mounted at `/workspace` |
 | Container disk | 20GB is fine — nothing large is written to it |
 
-**Why the 4090 and not an A40.** The A40 has twice the VRAM but is a generation
-older with ~30% less memory bandwidth (696 vs ~1008 GB/s), so it trains this
-model noticeably slower — often at a higher hourly price. The 600M fine-tune
-needs roughly 13–16GB including optimizer states and activations at
-`--max-length 128`, which fits 24GB with headroom. Rent 48GB when you actually
-train NLLB-1.3B (Stage 3), not before.
+The 600M fine-tune needs roughly 13–16GB including optimizer states and
+activations at `--max-length 128`, so 24GB fits with headroom. Rent 48GB+ when
+you actually train NLLB-1.3B (Stage 3), not before.
+
+### Choosing the GPU
+
+Observed RunPod pricing — check the live page, these move:
+
+| GPU | $/hr | VRAM | Gen | Notes |
+|---|---|---|---|---|
+| **RTX 4090** | **0.74** | 24GB | Ada | **Default.** Fast, and Ada works on the template above |
+| RTX 3090 | 0.50 | 24GB | Ampere | ~1.4× slower, 32% cheaper — total cost is roughly a wash. 32 vCPU is the best CPU on offer |
+| RTX PRO 4000 | 0.57 | 24GB | Blackwell | Cheaper, but see the template warning |
+| RTX 5090 | 0.99 | 32GB | Blackwell | Fastest cheap option, ~1.8× the 4090's bandwidth |
+| L40S | 0.99 | 48GB | Ada | For Stage 3 / NLLB-1.3B |
+| A100 SXM | 1.59 | 80GB | Ampere | For Stage 3 / NLLB-3.3B |
+| RTX PRO 6000 | 2.09 | 96GB | Blackwell | Only for 3.3B |
+
+> **Blackwell needs a newer template.** RTX 5090, RTX PRO 4000/4500/6000 and
+> PRO 6000 MIG are Blackwell (sm_120), which the `pytorch:2.4.0-cuda12.4.1`
+> template above does **not** support — you get `no kernel image is available
+> for execution on the device`. Those cards need CUDA 12.8+ and PyTorch 2.7+.
+> The RTX 4090 and 3090 are Ada and Ampere respectively and carry no such risk.
+
+Full pipeline (Steps 4–8, both training runs) lands around 12–16 GPU hours,
+so **$9–12 on a 4090**.
 
 Three things that bite people:
 
@@ -45,9 +65,10 @@ Three things that bite people:
   and datacenter first, then create the volume there.
 - Spot/interruptible saves ~50% and is safe here, because everything resumes
   from checkpoints on the network volume.
-- Community-cloud 4090s are consumer cards in varied hosts. If `nvidia-smi`
-  shows low GPU utilization with `--batch` already high, the host's CPU is
-  bottlenecking the dataloader — destroy the pod and re-rent.
+- The 4090 offering has only **8 vCPU / 31GB RAM**. Fine here, because the data
+  is tokenized before the training loop. But if `nvidia-smi` shows GPU
+  utilization under ~70% with `--batch 32`, lower `--dataloader-num-workers`
+  from 4 to 2 before assuming the GPU is at fault.
 
 Add these as pod **Secrets** (not in code, not in the notebook):
 `HF_TOKEN` (needs *write* access to push models), and `WANDB_API_KEY` if you
