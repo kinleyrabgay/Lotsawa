@@ -38,10 +38,14 @@ NGA = "ང"  # ང
 QUESTION_PARTICLES = {"ག", "སྨོ", "ན", "ཨིན་ན"}
 
 # Traditional Tibetan orthography omits the shad after a syllable ending in ཀ or
-# ག, the descending stroke standing in for it. Modern Dzongkha practice varies,
-# and this affects ~16% of the corpus (ནུག, འདུག, and the particle ག are among
-# the most common final syllables). Confirm against the Dzongkha Development
-# Commission style guide or a native reader before committing either way.
+# ག, the descending stroke standing in for it. Modern Dzongkha keeps it, and that
+# is what this project uses -- confirmed by the project owner, 2026-09-01. So
+# ནུག, འདུག and the question particle ག all take a shad (འདུག།, དོ་ག།), which
+# affects ~16% of the corpus since those are among the most common final
+# syllables.
+#
+# This is baked into every dataset built by prepare_data.py. Changing it means
+# rebuilding the data and redoing the baseline evaluation.
 SHAD_AFTER_GA = True
 GA_KA = {"ག", "ཀ"}  # ག ཀ
 

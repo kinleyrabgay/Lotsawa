@@ -5,17 +5,18 @@ RTX 4090.
 
 ---
 
-## Step 0 — Decide this before you spend money
+## Step 0 — Settled: the shad is written
 
-`normalize.py` sets `SHAD_AFTER_GA = True`, writing a shad after syllables
-ending in ག/ཀ (`འདུག།`, `དོ་ག།`). Traditional Tibetan orthography omits it there;
-modern Dzongkha practice varies. This affects **~16%** of the corpus, because
-ནུག, འདུག and the question particle ག are among the most common final syllables.
+`normalize.py` sets `SHAD_AFTER_GA = True`, writing a shad after syllables ending
+in ག/ཀ (`འདུག།`, `དོ་ག།`). Traditional Tibetan orthography omits it there; modern
+Dzongkha keeps it, and that is the convention this project follows — confirmed by
+the project owner. This affects **~16%** of the corpus, since ནུག, འདུག and the
+question particle ག are among the most common final syllables.
 
-Confirm against the Dzongkha Development Commission style guide or a native
-reader, then set the constant. Changing it later means retraining from scratch.
+It is baked into every dataset `prepare_data.py` builds, so changing it later
+means rebuilding the data *and* redoing the baseline.
 
-Check the normalizer's output while you are at it:
+Sanity-check the normalizer's output before you start:
 
 ```bash
 python normalize.py ../dataset.csv | head -60
