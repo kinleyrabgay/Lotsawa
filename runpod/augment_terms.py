@@ -57,6 +57,11 @@ SEED_WORDS = {
     "place": ["thimphu", "paro", "punakha", "bumthang", "trongsa", "wangdue",
               "trashigang", "india", "nepal", "bhutan"],
     "colour": ["red", "blue", "green", "yellow", "white", "black", "orange"],
+    # Personal names are the richest category in this corpus: 4,745 carriers for
+    # "tom" alone, 1,661 for "mary", each already transliterated on the Dzongkha
+    # side. Substituting Bhutanese names into those sentences is the cheapest
+    # possible route to name coverage.
+    "person": ["tom", "mary", "john", "alice", "david", "mike"],
 }
 
 
@@ -157,7 +162,7 @@ def build(rows, terms, phrases, args):
         # 1. Normalise the term to its preferred form in its own carriers.
         for dz, en, found in carriers:
             fixed = dz.replace(found, term["dz"]) if found != term["dz"] else dz
-            pairs.append((fixed, en))
+            pairs.append((fixed, en, False))
             stats["corrected" if found != term["dz"] else "kept"] += 1
 
         # 2. Lend those carriers to every other term in the category.
@@ -169,14 +174,30 @@ def build(rows, terms, phrases, args):
                 new_en = swap_english(en, term["en"], other["en"])
                 if new_dz == dz or new_en == en:
                     continue
-                pairs.append((new_dz, new_en))
+                pairs.append((new_dz, new_en, False))
                 stats["cross_substituted"] += 1
 
-    # 3. Phrases and proverbs are non-compositional -- no substitution, just
+        # 3. Bare term pairs, so a single word typed on its own is in
+        #    distribution. People use a translator as a dictionary -- "apple",
+        #    "Tashi", "mango" -- and a model trained only on sentences treats a
+        #    lone word as out-of-distribution input and may answer with a whole
+        #    sentence. Carriers teach usage; bare pairs teach lookup. Both are
+        #    needed, which is why these are emitted alongside, not instead.
+        for _ in range(args.bare_repeat):
+            # bare=True: a lookup is not a sentence, so it must not pick up a
+            # shad or a full stop from normalize_pair.
+            pairs.append((term["dz"], term["en"], True))
+            stats["bare_rows"] += 1
+            # Capitalised too, since that is how people type a name.
+            if term["en"][:1].islower():
+                pairs.append((term["dz"], term["en"].capitalize(), True))
+                stats["bare_rows"] += 1
+
+    # 4. Phrases and proverbs are non-compositional -- no substitution, just
     #    include them, repeated so they are not lost in a 500k-row mix.
     for dz, en in phrases:
         for _ in range(args.phrase_repeat):
-            pairs.append((dz, en))
+            pairs.append((dz, en, False))
             stats["phrase_rows"] += 1
 
     return pairs, stats
@@ -213,6 +234,9 @@ def main():
                     help="build: carriers lent to each sibling term.")
     ap.add_argument("--phrase-repeat", type=int, default=8,
                     help="build: copies of each proverb or fixed phrase.")
+    ap.add_argument("--bare-repeat", type=int, default=6,
+                    help="build: copies of each term as a bare word pair, so "
+                         "single-word queries work. 0 to disable.")
     ap.add_argument("--no-normalize", action="store_true",
                     help="Skip orthography restoration (only for inspection).")
     ap.add_argument("--seed", type=int, default=42)
@@ -258,8 +282,11 @@ def main():
 
     from datasets import Dataset
     flat = {"src": [], "tgt": [], "src_lang": [], "tgt_lang": []}
-    for dz, en in pairs:
-        if not args.no_normalize:
+    for dz, en, bare in pairs:
+        if bare:
+            # Keep the term exactly as written: tsheg intact, no shad, no stop.
+            dz, en = dz.strip(), en.strip()
+        elif not args.no_normalize:
             dz, en = normalize_pair(dz, en)
         for s, t, sl, tl in ((dz, en, DZ, EN), (en, dz, EN, DZ)):
             flat["src"].append(s)
