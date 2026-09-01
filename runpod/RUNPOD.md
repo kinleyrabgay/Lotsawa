@@ -189,6 +189,13 @@ nvidia-smi                            # confirm the GPU is what you paid for
 against the pod's exact CUDA version, and letting pip replace it with a wheel for
 a different CUDA breaks at the first kernel launch.
 
+`hf_transfer` is in the requirements because RunPod's templates export
+`HF_HUB_ENABLE_HF_TRANSFER=1` without installing the package, which makes every
+Hub download fail with *"Fast download using 'hf_transfer' is enabled ... but
+'hf_transfer' package is not available"*. If you hit that anyway,
+`pip install hf_transfer` fixes it, or `export HF_HUB_ENABLE_HF_TRANSFER=0`
+disables the flag.
+
 Log in interactively rather than with `--token $HF_TOKEN`. RunPod Secrets are not
 auto-exported as environment variables, so that variable is usually empty — and
 the interactive prompt keeps the token out of your shell history. **The token

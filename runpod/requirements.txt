@@ -21,3 +21,10 @@ sacrebleu==2.4.3
 evaluate==0.4.3
 wandb==0.18.7
 huggingface_hub>=0.26.0
+
+# RunPod's PyTorch templates export HF_HUB_ENABLE_HF_TRANSFER=1 without shipping
+# the package, which makes every Hub download fail with "Fast download using
+# 'hf_transfer' is enabled ... but 'hf_transfer' package is not available".
+# Installing it satisfies the flag and genuinely speeds up the ~5GB NLLB pull.
+# The alternative is `export HF_HUB_ENABLE_HF_TRANSFER=0`.
+hf_transfer>=0.1.8
