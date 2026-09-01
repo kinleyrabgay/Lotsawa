@@ -23,7 +23,7 @@ from datetime import datetime, timezone
 import numpy as np
 import sacrebleu
 import torch
-from datasets import concatenate_datasets, load_from_disk
+from datasets import concatenate_datasets, load_dataset, load_from_disk
 from transformers import (
     AutoModelForSeq2SeqLM,
     AutoTokenizer,
@@ -239,6 +239,13 @@ def main():
     ap.add_argument("--warmup", type=int, default=1000)
     ap.add_argument("--eval-steps", type=int, default=2000)
     ap.add_argument("--eval-subset", type=int, default=1000)
+    ap.add_argument("--eval-flores", action="store_true",
+                    help="Select checkpoints on FLORES-200 dev instead of the "
+                         "in-domain validation split. Strongly recommended: the "
+                         "v1 run peaked at +26 chrF++ in-domain while REGRESSING "
+                         "0.74 on FLORES, because in-domain dev BLEU rewards "
+                         "exactly the overfitting that causes it. FLORES dev is "
+                         "held-out, out-of-domain, and never trained on.")
     ap.add_argument("--grad-checkpointing", action="store_true")
     ap.add_argument("--fp16", action="store_true", help="Only for pre-Ampere GPUs")
     ap.add_argument("--resume", action="store_true")
@@ -296,7 +303,18 @@ def main():
     # In-training eval is dz->en only, on a subset: generation is slow and we
     # just need a checkpoint-selection signal. Full per-direction scores come
     # from the final test pass below.
-    val_dz_en = ds["validation"].filter(lambda ex: ex["src_lang"] == DZ)
+    if args.eval_flores:
+        from datasets import Dataset as _Dataset
+        flores = load_dataset("openlanguagedata/flores_plus", DZ, split="dev")
+        flores_en = load_dataset("openlanguagedata/flores_plus", EN, split="dev")
+        by_id = {r["id"]: r["text"] for r in flores_en}
+        rows = [{"src": r["text"], "tgt": by_id[r["id"]],
+                 "src_lang": DZ, "tgt_lang": EN}
+                for r in flores if r["id"] in by_id]
+        print(f"Checkpoint selection on FLORES-200 dev: {len(rows)} sentences")
+        val_dz_en = _Dataset.from_list(rows)
+    else:
+        val_dz_en = ds["validation"].filter(lambda ex: ex["src_lang"] == DZ)
     if args.eval_subset and len(val_dz_en) > args.eval_subset:
         val_dz_en = val_dz_en.select(range(args.eval_subset))
     tokenizer.src_lang, tokenizer.tgt_lang = DZ, EN
@@ -334,7 +352,7 @@ def main():
         generation_max_length=args.max_length,
         generation_num_beams=4,
         load_best_model_at_end=True,
-        metric_for_best_model="bleu",
+        metric_for_best_model="chrf2",
         greater_is_better=True,
         dataloader_num_workers=4,
         dataloader_pin_memory=True,
