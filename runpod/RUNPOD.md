@@ -1,6 +1,7 @@
 # Lotsawa — RunPod training runbook
 
-Full sequence, in order. Roughly 6–15 GPU hours and $5–15 end to end.
+Full sequence, in order. Roughly 5–13 GPU hours and $4–12 end to end on an
+RTX 4090.
 
 ---
 
@@ -26,17 +27,27 @@ python normalize.py ../dataset.csv | head -60
 
 | Setting | Value |
 |---|---|
-| GPU | **A40 48GB** (Community Cloud) |
+| GPU | **RTX 4090 24GB** (Community Cloud) |
 | Template | `runpod/pytorch:2.4.0-py3.11-cuda12.4.1` |
 | Network volume | **50GB**, mounted at `/workspace` |
 | Container disk | 20GB is fine — nothing large is written to it |
 
-Two things that bite people:
+**Why the 4090 and not an A40.** The A40 has twice the VRAM but is a generation
+older with ~30% less memory bandwidth (696 vs ~1008 GB/s), so it trains this
+model noticeably slower — often at a higher hourly price. The 600M fine-tune
+needs roughly 13–16GB including optimizer states and activations at
+`--max-length 128`, which fits 24GB with headroom. Rent 48GB when you actually
+train NLLB-1.3B (Stage 3), not before.
 
-- The **network volume must be in the same datacenter as the pod**, so create the
-  volume first, then filter pods by that datacenter.
+Three things that bite people:
+
+- The **network volume must be in the same datacenter as the pod**. Pick the GPU
+  and datacenter first, then create the volume there.
 - Spot/interruptible saves ~50% and is safe here, because everything resumes
   from checkpoints on the network volume.
+- Community-cloud 4090s are consumer cards in varied hosts. If `nvidia-smi`
+  shows low GPU utilization with `--batch` already high, the host's CPU is
+  bottlenecking the dataloader — destroy the pod and re-rent.
 
 Add these as pod **Secrets** (not in code, not in the notebook):
 `HF_TOKEN` (needs *write* access to push models), and `WANDB_API_KEY` if you
@@ -157,7 +168,7 @@ goes NaN you are somehow in fp16 — drop the flag and use bf16.
 Interrupted (spot preemption, crash, your laptop closing)? Same command plus
 `--resume`.
 
-Expect roughly 4–6 hours for 3 epochs at batch 32 on an A40. `--eval-steps 4000`
+Expect roughly 3–5 hours for 3 epochs at batch 32 on a 4090. `--eval-steps 4000`
 rather than the default 2000 keeps generation-based evaluation from eating an
 extra hour.
 
@@ -263,10 +274,14 @@ measured, and re-deriving them costs GPU time.
 
 | GPU | Flags |
 |---|---|
-| A40 / L40S / A100 (48GB+) | `--batch 32` |
-| RTX 4090 (24GB) | `--batch 16 --grad-accum 2` |
+| **RTX 4090 (24GB)** | `--batch 32` — drop to `--batch 16 --grad-accum 2` if OOM at `--max-length 128` |
+| A40 / L40S / A100 (48GB+) | `--batch 32`, or higher — you have the room |
 | T4 / V100 (no bf16) | `--batch 8 --grad-accum 4 --fp16` |
-| NLLB-1.3B on 48GB | `--model facebook/nllb-200-1.3B --batch 8 --grad-accum 4 --grad-checkpointing --lr 1e-5` |
+| NLLB-1.3B (needs 48GB+) | `--model facebook/nllb-200-1.3B --batch 8 --grad-accum 4 --grad-checkpointing --lr 1e-5` |
+
+`--grad-accum` trades speed for memory at a fixed effective batch size: `--batch
+16 --grad-accum 2` and `--batch 32 --grad-accum 1` train identically, the former
+just slower. Reach for it before lowering the effective batch.
 
 ---
 
