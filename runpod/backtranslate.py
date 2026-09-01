@@ -78,6 +78,10 @@ def main():
                          "because it yields more varied, more useful synthetic "
                          "source text; beam output is cleaner but less informative.")
     ap.add_argument("--no-tag", action="store_true", help="Omit the <bt> tag.")
+    ap.add_argument("--no-digit-filter", action="store_true",
+                    help="Keep pairs whose digits do not round-trip. Use when the "
+                         "digit-mismatch drop rate is high because the model spells "
+                         "numbers as Dzongkha words instead of digits.")
     ap.add_argument("--min-ratio", type=float, default=0.25)
     ap.add_argument("--max-ratio", type=float, default=3.0)
     args = ap.parse_args()
@@ -104,6 +108,7 @@ def main():
 
     pairs = []
     dropped = {"empty": 0, "ratio": 0, "repeat": 0, "digits": 0}
+    digit_samples = []
 
     for start in range(0, len(lines), args.batch):
         batch = lines[start:start + args.batch]
@@ -127,8 +132,17 @@ def main():
                 continue
             # The whole point of this data is numerals, so a pair that lost or
             # invented one is worse than no pair at all.
-            if digits_in(dz) != digits_in(en):
+            #
+            # Caveat worth watching: the model often renders numbers as Dzongkha
+            # *words* rather than digits, so a source carrying ༣༡ can translate to
+            # "thirty-one" and be rejected here despite being a good pair. Check
+            # the reported drop rate on a --limit run; if it is high, the filter is
+            # discarding the very sentences this data exists to provide, and
+            # --no-digit-filter is the escape hatch.
+            if not args.no_digit_filter and digits_in(dz) != digits_in(en):
                 dropped["digits"] += 1
+                if len(digit_samples) < 5:
+                    digit_samples.append((dz[:70], en[:70]))
                 continue
             pairs.append({
                 "src": en if args.no_tag else BT_TAG + en,
@@ -144,6 +158,21 @@ def main():
     print(f"\nKept {len(pairs)} synthetic pairs")
     print(f"Dropped -- empty {dropped['empty']}, length ratio {dropped['ratio']}, "
           f"repetition {dropped['repeat']}, digit mismatch {dropped['digits']}")
+
+    considered = len(pairs) + sum(dropped.values())
+    digit_rate = 100 * dropped["digits"] / max(considered, 1)
+    if digit_rate > 25:
+        print(f"\nWARNING  {digit_rate:.0f}% of pairs were dropped on digit "
+              f"mismatch.\n"
+              f"         The model likely spells numbers as Dzongkha words rather "
+              f"than digits,\n"
+              f"         which means this filter is discarding the numeral-bearing "
+              f"sentences you\n"
+              f"         most want. Inspect these, then consider "
+              f"--no-digit-filter:")
+        for dz, en in digit_samples:
+            print(f"           dz: {dz}")
+            print(f"           en: {en}")
 
     Dataset.from_list(pairs).save_to_disk(args.out)
     print(f"Wrote {args.out}")
