@@ -27,8 +27,8 @@ python normalize.py ../dataset.csv | head -60
 
 | Setting | Value |
 |---|---|
-| GPU | **RTX 5090 32GB** — $0.99/hr (or RTX 4090 24GB, $0.74/hr) |
-| Template | CUDA **12.8+** / PyTorch **2.7+** for the 5090 — see below |
+| GPU | **RTX 4090 24GB** — $0.74/hr (RTX 5090 if you can get one) |
+| Template | **RunPod PyTorch 2.8.0** — works for Blackwell, Ada and Ampere alike |
 | Network volume | **100GB**, mounted at `/workspace` (50GB works — see below) |
 | Container disk | **30GB** — the default is fine, nothing large lands here |
 
@@ -50,12 +50,16 @@ Observed RunPod pricing — check the live page, these move:
 | A100 SXM | 1.59 | 80GB | Ampere | For Stage 3 / NLLB-3.3B |
 | RTX PRO 6000 | 2.09 | 96GB | Blackwell | Only for 3.3B |
 
-> **Blackwell needs a newer template.** RTX 5090, RTX PRO 4000/4500/6000 and
-> PRO 6000 MIG are Blackwell (sm_120). A CUDA 12.4 template has no kernels for
-> them and fails with `no kernel image is available for execution on the
-> device`. Choose a template whose tag shows **CUDA 12.8+ and PyTorch 2.7+**,
-> and run the verification in Step 3 before starting a long job. The RTX 4090
-> (Ada) and 3090 (Ampere) work on CUDA 12.1+ and carry no such risk.
+> **Use the PyTorch 2.8.0 template regardless of card.** It covers Blackwell
+> (sm_120), Ada (sm_89) and Ampere (sm_86), so you can switch GPUs without
+> touching the template. An older CUDA 12.4 template has no Blackwell kernels
+> and fails with `no kernel image is available for execution on the device`.
+> Run the Step 3 verification before starting a long job either way.
+
+> **The 5090 is usually out of capacity.** Consumer Blackwell is scarce on
+> RunPod — the listing shows `1 max` and often reads "Instance not available".
+> Do not wait on "Deploy when available"; take the 4090, which costs about $1
+> more across the whole pipeline.
 
 ### Why the 5090 costs less despite the higher rate
 
@@ -105,13 +109,26 @@ rm -rf /workspace/ckpt/checkpoint-*      # keeps the final model, frees ~22GB
 du -sh /workspace/ckpt
 ```
 
-**Provision 100GB and skip the cleanup.** Volume storage runs about
-$0.07/GB/month, so the extra 50GB is roughly $3.50/month — trivial next to the
-GPU spend, and it holds both runs' checkpoints (~60GB) at once so you can score
-`ckpt` against `ckpt-bt` directly instead of deleting one to fit the other.
+**Provision 100GB and skip the cleanup.** It holds both runs' checkpoints
+(~60GB) at once, so you can score `ckpt` against `ckpt-bt` directly instead of
+deleting one to fit the other.
 
-Volume storage bills whether or not a pod is attached, so **delete the volume
-when the project is done** — after the models are on the Hub.
+Observed billing for a 4090 + 30GB container + 100GB volume:
+
+| Line | Rate | Notes |
+|---|---|---|
+| GPU | $0.74/hr | only while running |
+| Container disk (30GB) | $0.004/hr | only while running |
+| Volume disk (100GB) | $0.014/hr | **~$10/month, always** |
+| **Stopped cost** | **$0.028/hr** | **~$20/month — see below** |
+
+Two billing traps:
+
+- **"Stopped" is not "off."** A stopped pod keeps billing $0.028/hr forever.
+  When you finish a session, **terminate** the pod — the network volume keeps
+  your checkpoints, and you drop to volume-only charges.
+- Volume storage bills with no pod attached at all, so **delete the volume once
+  the models are on the Hub** and the project is done.
 
 Three things that bite people:
 
@@ -363,6 +380,10 @@ cat *_flores.json                           # your results, all in one place
 `--hub-id` pushes at every save, but **verify the repo on huggingface.co before
 terminating.** The network volume outlives the pod only while you keep paying for
 it; the Hub repo is the durable copy.
+
+Then **terminate** the pod — do not merely stop it, which bills ~$0.028/hr
+indefinitely. Delete the network volume too once you no longer need the
+checkpoints (~$10/month for 100GB).
 
 Save the JSON result files off the pod too — they are the record of what you
 measured, and re-deriving them costs GPU time.
