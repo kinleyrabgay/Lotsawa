@@ -11,6 +11,7 @@ Stage 1 exists to fix, and this is how you watch it get fixed.
 """
 
 import argparse
+import re
 
 import torch
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
@@ -44,6 +45,18 @@ FORMAL = [
     "The Minister will arrive tomorrow and address the Assembly.",
     "Please be seated; His Excellency will speak shortly.",
 ]
+
+# Real Kuensel sentences carrying Tibetan digits, for the dz->en round trip.
+# Published Dzongkha writes numerals as Tibetan digits (༩:༣༠, ༤༥) and both the
+# CST and GovTech translators preserve that form, so this is the target
+# behaviour -- not spelling numbers out as words.
+DZ_DIGITS = [
+    "ཆུ་འཛོམས་ས་དེ་ བ་འཇོ་ཁྲོམ་རྙིངམ་ལས་ ཀི་ལོ་མི་ཊར་༦ དེ་ཅིག་གི་ ས་ཁར་ཨིན་པས།",
+    "སྣུམ་འཁོར་དེ་ ལམ་འོག་ལས་མར་ མི་ཊར་༣༥༠ དེ་ཅིག་ རྦོལ་རིལ་འགྱོཝ་ད་ དྭངས་ཆུ་ནང་ བུད་ཡོདཔ་ཨིན་པས།",
+    "དེ་ཡང་ དམག་སྡེའི་འགོ་དཔོན་གོངམ་༡༠ ལུ་ གསེར་གྱི་རྟགས་མ་གནང་ཡི།",
+]
+
+TIB_TO_ARABIC = str.maketrans("༠༡༢༣༤༥༦༧༨༩", "0123456789")
 
 
 def main():
@@ -83,6 +96,21 @@ def main():
         for src_text, hyp in zip(texts, translate(texts, src, tgt)):
             print(f"  {src_text}")
             print(f"   -> {hyp}\n")
+
+    # Do the numbers survive dz -> en? This decides whether back-translated
+    # Kuensel can serve as numeral training data: if the digits round-trip, the
+    # synthetic pairs teach digit handling; if they do not, they teach errors.
+    print("=== dz -> en  DIGIT ROUND TRIP ===")
+    hyps = translate(DZ_DIGITS, DZ, EN)
+    kept = 0
+    for src_text, hyp in zip(DZ_DIGITS, hyps):
+        want = sorted(set(re.findall(r"\d+", src_text.translate(TIB_TO_ARABIC))))
+        got = sorted(set(re.findall(r"\d+", hyp)))
+        ok = want == got
+        kept += ok
+        print(f"  {want} -> {got}   {'MATCH' if ok else 'MISMATCH'}")
+        print(f"   {hyp}\n")
+    print(f"  {kept}/{len(DZ_DIGITS)} preserved their digits")
 
 
 if __name__ == "__main__":
