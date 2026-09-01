@@ -274,6 +274,26 @@ Write both numbers down. FLORES-200 is the standard benchmark for this pair, so
 that score is what makes your results comparable to published work — and it is
 the one you quote to anyone else.
 
+Observed baseline for `nllb-200-distilled-600M` on the corpus test split
+(3,488 sentences per direction):
+
+| Direction | chrF++ | BLEU |
+|---|---|---|
+| dz→en | 37.98 | 18.31 |
+| en→dz | 33.33 | 5.64 |
+
+**`facebook/flores` is gated.** `evaluate.py` tries the ungated
+`openlanguagedata/flores_plus` and `Muennighoff/flores200` first, so `--flores`
+should work without any access request. If all three fail, request access at
+<https://huggingface.co/datasets/facebook/flores> — approval is usually
+immediate. FLORES is not a blocker for training: the corpus-test baseline above
+is already a valid comparison.
+
+**Why you want FLORES anyway.** Your own test split is *in-domain* — same
+conversational corpus as training — so fine-tuning will show large gains there.
+FLORES is out-of-domain, so it shows what the model does on text it was not
+shaped by. Expect a much smaller gain there, and treat that as the honest number.
+
 ---
 
 ## Step 6 — First training run

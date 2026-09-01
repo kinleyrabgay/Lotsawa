@@ -29,18 +29,66 @@ DZ = "dzo_Tibt"
 EN = "eng_Latn"
 
 
+# FLORES-200 devtest is 1,012 human-translated sentences and the standard
+# benchmark for this pair. facebook/flores is GATED -- it needs a one-click access
+# request on the Hub -- so try the ungated sources first. Never train on any of
+# these.
+#
+#   flores_plus  : one config per language, joined on `id`. The maintained
+#                  successor, published by the Open Language Data Initiative.
+#   paired       : a single `dzo_Tibt-eng_Latn` config with sentence_* columns.
+FLORES_SOURCES = [
+    ("openlanguagedata/flores_plus", "per_language"),
+    ("Muennighoff/flores200", "paired"),
+    ("facebook/flores", "paired"),
+]
+
+
+def _flores_per_language(repo, split):
+    dz = load_dataset(repo, DZ, split=split)
+    en = load_dataset(repo, EN, split=split)
+    by_id = {row["id"]: row["text"] for row in en}
+    pairs = [(row["text"], by_id[row["id"]]) for row in dz if row["id"] in by_id]
+    if not pairs:
+        raise ValueError(f"{repo}: no sentences aligned on `id`")
+    return pairs
+
+
+def _flores_paired(repo, split):
+    ds = load_dataset(repo, f"{DZ}-{EN}", split=split, trust_remote_code=True)
+    return list(zip(ds[f"sentence_{DZ}"], ds[f"sentence_{EN}"]))
+
+
+def load_flores(split, forced=""):
+    """Load FLORES dz-en from whichever source is reachable."""
+    sources = ([(forced, "per_language"), (forced, "paired")] if forced
+               else FLORES_SOURCES)
+    errors = []
+    for repo, shape in sources:
+        try:
+            loader = _flores_per_language if shape == "per_language" else _flores_paired
+            pairs = loader(repo, split)
+            print(f"FLORES source: {repo} ({shape}, {len(pairs)} sentences)")
+            return pairs
+        except Exception as exc:
+            errors.append(f"  {repo} [{shape}]: {type(exc).__name__}: "
+                          f"{str(exc).splitlines()[0][:140]}")
+    raise SystemExit(
+        "Could not load FLORES from any source:\n" + "\n".join(errors) +
+        "\n\nfacebook/flores is gated -- request access at\n"
+        "  https://huggingface.co/datasets/facebook/flores\n"
+        "then re-run. Or score without FLORES: drop --flores and use\n"
+        "--data with your own test split, which is already a valid comparison."
+    )
+
+
 def load_pairs(args):
     """Return {(src_lang, tgt_lang): [(src, ref), ...]} for both directions."""
     out = {}
     if args.flores:
-        # FLORES-200 devtest: 1,012 sentences, human-translated, the standard
-        # benchmark. Never train on this.
-        ds = load_dataset("facebook/flores", f"{DZ}-{EN}", split=args.flores_split,
-                          trust_remote_code=True)
-        dz = ds[f"sentence_{DZ}"]
-        en = ds[f"sentence_{EN}"]
-        out[(DZ, EN)] = list(zip(dz, en))
-        out[(EN, DZ)] = list(zip(en, dz))
+        pairs = load_flores(args.flores_split, args.flores_dataset)
+        out[(DZ, EN)] = pairs
+        out[(EN, DZ)] = [(en, dz) for dz, en in pairs]
     else:
         ds = load_from_disk(args.data)[args.split]
         for src_lang, tgt_lang in ((DZ, EN), (EN, DZ)):
@@ -79,6 +127,8 @@ def main():
     ap.add_argument("--split", default="test")
     ap.add_argument("--flores", action="store_true", help="Score on FLORES-200 instead.")
     ap.add_argument("--flores-split", default="devtest", choices=["dev", "devtest"])
+    ap.add_argument("--flores-dataset", default="",
+                    help="Force one FLORES source instead of trying each in turn.")
     ap.add_argument("--batch", type=int, default=16)
     ap.add_argument("--beams", type=int, default=4)
     ap.add_argument("--max-length", type=int, default=128)
