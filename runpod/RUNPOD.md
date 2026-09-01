@@ -29,7 +29,7 @@ python normalize.py ../dataset.csv | head -60
 |---|---|
 | GPU | **RTX 5090 32GB** — $0.99/hr (or RTX 4090 24GB, $0.74/hr) |
 | Template | CUDA **12.8+** / PyTorch **2.7+** for the 5090 — see below |
-| Network volume | **50GB** (100GB for comfort), mounted at `/workspace` |
+| Network volume | **100GB**, mounted at `/workspace` (50GB works — see below) |
 | Container disk | **30GB** — the default is fine, nothing large lands here |
 
 The 600M fine-tune needs roughly 13–16GB including optimizer states and
@@ -105,10 +105,13 @@ rm -rf /workspace/ckpt/checkpoint-*      # keeps the final model, frees ~22GB
 du -sh /workspace/ckpt
 ```
 
-If you would rather not think about it, provision **100GB**. Volume storage runs
-about $0.07/GB/month, so the extra 50GB is roughly $3.50/month — trivial next to
-the GPU spend, and it lets you keep both runs' checkpoints side by side for
-comparison.
+**Provision 100GB and skip the cleanup.** Volume storage runs about
+$0.07/GB/month, so the extra 50GB is roughly $3.50/month — trivial next to the
+GPU spend, and it holds both runs' checkpoints (~60GB) at once so you can score
+`ckpt` against `ckpt-bt` directly instead of deleting one to fit the other.
+
+Volume storage bills whether or not a pod is attached, so **delete the volume
+when the project is done** — after the models are on the Hub.
 
 Three things that bite people:
 
