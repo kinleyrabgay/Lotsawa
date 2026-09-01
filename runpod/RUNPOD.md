@@ -199,12 +199,13 @@ checkpoint push, hours into training. Verify with `hf auth whoami`.
 `torch.cuda.is_available()` can return `True` on a card whose architecture the
 build does not support, so run a real matmul:
 
-Keep it on one line — a pasted multi-line `python -c` picks up your terminal's
-indentation and dies with `IndentationError`.
-
 ```bash
-python -c "import torch; print('torch', torch.__version__, 'cuda', torch.version.cuda); print('gpu', torch.cuda.get_device_name(0)); print('sm', torch.cuda.get_device_capability(0)); print('bf16', torch.cuda.is_bf16_supported()); x=torch.randn(2048,2048,device='cuda',dtype=torch.bfloat16); print('matmul ok:', bool((x@x).sum().isfinite()))"
+python check_gpu.py
 ```
+
+(Use the script rather than an inline `python -c`. Long one-liners get
+line-wrapped by the terminal on paste, and the injected newline produces
+`IndentationError: unexpected indent`.)
 
 Expect `sm (8, 9)` on a 4090, `sm (12, 0)` on a 5090, and `matmul ok: True`. If
 the matmul raises `no kernel image is available`, the template is too old for the
