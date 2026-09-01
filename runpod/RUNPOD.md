@@ -181,7 +181,7 @@ cd /workspace/runpod
 export HF_HOME=/workspace/hf          # keep the 2.4GB model cache off the container disk
 echo 'export HF_HOME=/workspace/hf' >> ~/.bashrc
 pip install -r requirements.txt       # deliberately does NOT install torch
-huggingface-cli login --token $HF_TOKEN
+huggingface-cli login                 # paste the token at the prompt
 nvidia-smi                            # confirm the GPU is what you paid for
 ```
 
@@ -189,25 +189,26 @@ nvidia-smi                            # confirm the GPU is what you paid for
 against the pod's exact CUDA version, and letting pip replace it with a wheel for
 a different CUDA breaks at the first kernel launch.
 
+Log in interactively rather than with `--token $HF_TOKEN`. RunPod Secrets are not
+auto-exported as environment variables, so that variable is usually empty — and
+the interactive prompt keeps the token out of your shell history. **The token
+needs `Write` role**; a read token pulls the dataset fine but fails at the first
+checkpoint push, hours into training. Verify with `hf auth whoami`.
+
 **Verify the GPU actually runs a kernel before starting a multi-hour job.**
 `torch.cuda.is_available()` can return `True` on a card whose architecture the
 build does not support, so run a real matmul:
 
+Keep it on one line — a pasted multi-line `python -c` picks up your terminal's
+indentation and dies with `IndentationError`.
+
 ```bash
-python -c "
-import torch
-print('torch', torch.__version__, 'cuda', torch.version.cuda)
-print('gpu  ', torch.cuda.get_device_name(0))
-print('sm   ', torch.cuda.get_device_capability(0))
-print('bf16 ', torch.cuda.is_bf16_supported())
-x = torch.randn(2048, 2048, device='cuda', dtype=torch.bfloat16)
-print('matmul ok:', float((x @ x).sum()) == float((x @ x).sum()))
-"
+python -c "import torch; print('torch', torch.__version__, 'cuda', torch.version.cuda); print('gpu', torch.cuda.get_device_name(0)); print('sm', torch.cuda.get_device_capability(0)); print('bf16', torch.cuda.is_bf16_supported()); x=torch.randn(2048,2048,device='cuda',dtype=torch.bfloat16); print('matmul ok:', bool((x@x).sum().isfinite()))"
 ```
 
-On a 5090 expect `sm (12, 0)` and `cuda 12.8` or higher. If the matmul raises
-`no kernel image is available`, the template is too old — destroy the pod and
-pick a CUDA 12.8+ one.
+Expect `sm (8, 9)` on a 4090, `sm (12, 0)` on a 5090, and `matmul ok: True`. If
+the matmul raises `no kernel image is available`, the template is too old for the
+card — destroy the pod and pick a newer one.
 
 `HF_HOME` matters. The default cache lives on the container disk, which is small
 and does not survive the pod. Pointing it at the network volume also means the
