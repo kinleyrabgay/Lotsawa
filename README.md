@@ -20,6 +20,7 @@ daily production use rather than a benchmark number.
 | Language codes | `dzo_Tibt` ↔ `eng_Latn` |
 | Training rows | 439,120 (219,560 pairs × 2 directions) |
 | Base model | NLLB-200 distilled 600M |
+| Released | `lotsawa-600m-dz-en` (v1), `-v2` (+ back-translation), `-v3` (+ dictionary) |
 | Primary metric | chrF++ (BLEU is unreliable on Tibetan script) |
 | Benchmark | FLORES-200 `dzo_Tibt` devtest |
 
@@ -35,6 +36,14 @@ runpod/
   prepare_data.py      dedupe, de-leak, normalize, build both directions
   fetch_monolingual.py pulls clean monolingual Dzongkha from FineTranslations
   backtranslate.py     monolingual dz → synthetic en→dz training pairs
+  build_term_tables.py corpus-derived candidate term tables, with confidence
+  extract_dictionary.py the DDC dictionary PDF -> entries, verb forms, glossaries
+  pdf_glyphs.py        repairs the characters the PDF's ToUnicode table drops
+  fill_terms_from_dict.py fills terms/*.csv from the dictionary
+  dict_pairs.py        the dictionary -> training pairs for v3
+  augment_terms.py     teaches a term inside real sentences (carrier substitution)
+  terms/               14 per-category term tables, dictionary-backed
+  dict/                the extracted dictionary (derived, see dict/README.md)
   train.py             the fine-tune
   evaluate.py          chrF++/BLEU both directions, base model or checkpoint
   translate.py         inference
@@ -81,7 +90,10 @@ Measured, not assumed — see the audit for the full picture:
   Dzongkha (0.212).
 
 `normalize.py` and `respace.py` repair the last two. The first three need data,
-not code — that is what `data/dz_mono.txt` and the staged plan are for.
+not code — that is what `data/dz_mono.txt`, the DDC dictionary and the staged
+plan are for. v3 addresses the vocabulary, proper-noun and honorific gaps
+directly: see **[dict/README.md](runpod/dict/README.md)** and Step 10 of the
+runbook.
 
 ## Provenance
 
@@ -95,6 +107,10 @@ shad-restored input — the checkpoint carries the contract that describes it.
 - Base model: [NLLB-200](https://huggingface.co/facebook/nllb-200-distilled-600M) (CC-BY-NC 4.0)
 - Monolingual Dzongkha: [FineTranslations](https://huggingface.co/datasets/HuggingFaceFW/finetranslations) (ODC-BY); source articles remain their publishers' property
 - Benchmark: FLORES-200
+- Lexicon: *Dzongkha–English Pocket Dictionary*, 2nd ed., Dzongkha Development
+  Commission, 2013. © DDC, all rights reserved — the extracted tables under
+  `runpod/dict/` are a derivative of a copyrighted work and are **not** to be
+  redistributed as a dataset. They stay local; only model weights are published.
 
 Note that NLLB-200's CC-BY-NC licence is **non-commercial**. Confirm the licensing
 path before shipping a paid product on top of it.

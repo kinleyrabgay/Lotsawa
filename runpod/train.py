@@ -226,9 +226,11 @@ def main():
     ap.add_argument("--model", default="facebook/nllb-200-distilled-600M")
     ap.add_argument("--data", default="/workspace/data/dz_en_bidi")
     ap.add_argument("--extra-data", default="",
-                    help="Additional flat dataset to concatenate into training, "
-                         "e.g. the synthetic pairs from backtranslate.py. Eval "
-                         "always stays on the real held-out data.")
+                    help="Additional flat datasets to concatenate into "
+                         "training, comma-separated: the synthetic pairs from "
+                         "backtranslate.py, the dictionary lookups from "
+                         "dict_pairs.py, the carriers from augment_terms.py. "
+                         "Eval always stays on the real held-out data.")
     ap.add_argument("--out", default="/workspace/ckpt")
     ap.add_argument("--hub-id", default="")
     ap.add_argument("--max-length", type=int, default=64)
@@ -276,11 +278,11 @@ def main():
     print("Data:", {k: len(v) for k, v in ds.items()})
 
     train_parts = [ds["train"]]
-    if args.extra_data:
-        extra = load_from_disk(args.extra_data)
+    for path in [p.strip() for p in args.extra_data.split(",") if p.strip()]:
+        extra = load_from_disk(path)
         if hasattr(extra, "keys"):
             extra = extra["train"]
-        print(f"Extra training data: {len(extra)} rows from {args.extra_data}")
+        print(f"Extra training data: {len(extra)} rows from {path}")
         train_parts.append(extra)
     train_raw = (concatenate_datasets(train_parts)
                  if len(train_parts) > 1 else train_parts[0])

@@ -322,9 +322,10 @@ def main():
     ap.add_argument("--no-normalize", action="store_true",
                     help="Skip orthography restoration (only for inspection).")
     ap.add_argument("--min-confidence", default="high",
-                    choices=["high", "medium", "low"],
+                    choices=["dict", "high", "medium", "low"],
                     help="build: lowest confidence band to train on. Default "
-                         "'high'. Medium and low rows are extraction guesses -- "
+                         "'high'; 'dict' trains only on dictionary-sourced "
+                         "rows. Medium and low rows are extraction guesses -- "
                          "'cow' resolved to the verb 'to milk' because milking "
                          "sentences dominate its carriers -- and a wrong bare "
                          "pair teaches the wrong word outright.")
@@ -400,7 +401,9 @@ def main():
     else:
         raw = read_term_dir(args.terms_dir)
 
-    order = {"high": 3, "medium": 2, "low": 1}
+    # "dict" is a form taken from the DDC dictionary, which outranks any
+    # confidence band inferred from corpus co-occurrence.
+    order = {"dict": 4, "high": 3, "medium": 2, "low": 1}
     floor = order[args.min_confidence]
     before = len(raw)
     raw = [t for t in raw if order.get(t["confidence"], 3) >= floor]

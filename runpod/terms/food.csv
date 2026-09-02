@@ -1,52 +1,52 @@
 en,dz_preferred,confidence,coverage,carriers,dz_candidates,review,dz_variants,notes
-rice,ཆུམ་,low,0.48,104,ཆུམ་(0.48) | ལྟོ་(0.36) | གྱི་(0.15),YES,,
-red rice,,MISSING,,2,,YES - not in corpus,,
-bread,བཱམ་རོ་ཊི་,medium,0.63,126,བཱམ་རོ་ཊི་(0.63) | ཉོ་(0.15) | ཡི(0.16),YES,,
-noodle,པུ་ཏ་,low,0.38,8,པུ་ཏ་(0.38) | རྒྱ་ཐུག་(0.50) | ཟ་(0.38),YES,,
-flour,ཕྱེ་,high,0.87,15,ཕྱེ་(0.87) | བཟོ་(0.20) | དང་(0.20),,,
-milk,ཨོམ་,high,0.96,256,ཨོམ་(0.96) | ཨིན(0.20) | གིས་(0.34),,,
-butter,བཱམ་རོ་ཊི་,low,0.16,68,བཱམ་རོ་ཊི་(0.16) | མར་(0.91) | དང་(0.25),YES,,
-cheese,དར་ཚིལ་,low,0.36,70,དར་ཚིལ་(0.36) | དར་ཚི་(0.46) | ཨོམ་(0.17),YES,,
-curd,,MISSING,,1,,YES - not in corpus,,
-yoghurt,,MISSING,,0,,YES - not in corpus,,
-tea,ཇ་,high,0.85,319,ཇ་(0.85) | ཕོརཔ་(0.19) | གང་(0.17),,,
-butter tea,,MISSING,,1,,YES - not in corpus,,
-water,ཆུ་,high,0.83,837,ཆུ་(0.83) | ནང་(0.21) | ཨིན(0.16),,,
-juice,ཁུ་བ་,medium,0.60,42,ཁུ་བ་(0.60) | ཚལ་(0.19) | འཐུང་(0.19),YES,,
-meat,ཤ་,medium,0.80,168,ཤ་(0.80) | ཟ་(0.26) | ནི་(0.21),YES,,
-beef,ནོར་ཤ་,medium,0.77,31,ནོར་ཤ་(0.77) | དང་(0.16) | གིས་(0.39),YES,,
-pork,ཕག་ཤ་,high,0.87,15,ཕག་ཤ་(0.87) | ནོར་ཤ་(0.20) | དགའ(0.20),,,
-chicken meat,,MISSING,,0,,YES - not in corpus,,
-mutton,ཤ་དུམ་,low,0.20,5,ཤ་དུམ་(0.20) | ཁོག་(0.20) | ནོར་ཤ་(0.20),YES,,
-fish meat,,MISSING,,0,,YES - not in corpus,,
-egg,སྒོང་རྡོག་,high,0.80,190,སྒོང་རྡོག་(0.80) | ཚུ་(0.31) | ཨིན(0.17),,,
-salt,ཚྭ་,medium,0.77,100,ཚྭ་(0.77) | གནང་(0.24) | ཀྱིས་(0.20),YES,,
-sugar,གུ་རམ་,low,0.44,156,གུ་རམ་(0.44) | རམ་(0.36) | ཀཱ་ཕི་(0.18),YES,,
-oil,མར་ཁུ་,low,0.43,91,མར་ཁུ་(0.43) | སྣུམ་(0.18) | གྱི་(0.15),YES,,
-ghee,,MISSING,,0,,YES - not in corpus,,
-honey,སྦྲང་རྩི་,medium,0.61,28,སྦྲང་རྩི་(0.61) | གིས་(0.54) | ཨིན(0.21),YES,,
-soup,ཁུ་བ་,medium,0.64,84,ཁུ་བ་(0.64) | འདུག(0.18) | ནང་(0.18),YES,,
-stew,ཤ་ཐུག་,medium,0.64,11,ཤ་ཐུག་(0.64) | དཀྲུག་(0.18) | ནོར་ཤ་(0.18),YES,,
-curry,ཚོདམ་,medium,0.79,14,ཚོདམ་(0.79) | ལྟོ་(0.29) | ཟ་(0.43),YES,,
-chilli cheese,,MISSING,,0,,YES - not in corpus,,
-porridge,,MISSING,,0,,YES - not in corpus,,
-dumpling,,MISSING,,1,,YES - not in corpus,,
-momo,,MISSING,,0,,YES - not in corpus,,
-pancake,ཁུར་ལེབ་,high,1.00,7,ཁུར་ལེབ་(1.00) | དྲོ་མཛར་(0.29) | དགའ(0.29),,,
-biscuit,བིསི་ཀུཊི་,low,0.20,5,བིསི་ཀུཊི་(0.20) | ཇ(0.20) | ང་ཅས་(0.20),YES,,
-cake,མངར་ཁུར་,medium,0.63,254,མངར་ཁུར་(0.63) | མངར་ཟས་(0.15) | ཅིག་(0.21),YES,,
-sweet,མངརམོ་,low,0.16,89,མངརམོ་(0.16) | འདི་(0.42) | ཅིག་(0.17),YES,,
-pickle,,MISSING,,2,,YES - not in corpus,,
-vinegar,རྫས་ཁུ་,medium,0.60,5,རྫས་ཁུ་(0.60) | སྔོ་ལྡུམ་(0.20) | བ་སྦྱང་(0.20),YES,,
-pepper,ཐིང་ངེ་,low,0.15,20,ཐིང་ངེ་(0.15) | ཐིང་(0.65) | ངེ་(0.15),YES,,
-spice,,MISSING,,3,,YES - not in corpus,,
-yeast,,MISSING,,1,,YES - not in corpus,,
-beer,བི་ཡར་,medium,0.60,268,བི་ཡར་(0.60) | འཐུང་(0.30) | ཡར་(0.23),YES,,
-wine,ཝའིན་,medium,0.54,269,ཝའིན་(0.54) | ཆང་(0.29) | གིས་(0.30),YES,,
-liquor,དམ་སྦྱིས་,low,0.29,7,དམ་སྦྱིས་(0.29) | བི་ཡར་(0.29) | ཆང་(0.86),YES,,
-breakfast,དྲོ་མཛར་,high,0.95,281,དྲོ་མཛར་(0.95) | ཟ་(0.41) | ཡི(0.24),,,
-lunch,ཉི་མའི་ལྟོ་,low,0.33,392,ཉི་མའི་ལྟོ་(0.33) | ཉིན་མའི་ལྟོ་(0.26) | ལྟོ་(0.16),YES,,
-dinner,ཕྱི་རུའི་ལྟོ་,medium,0.57,446,ཕྱི་རུའི་ལྟོ་(0.57) | ཟ་(0.35) | གི་(0.22),YES,,
-snack,ལག་ཟས་,low,0.22,23,ལག་ཟས་(0.22) | བཞེས་རྩམ་(0.22) | ཁ་ཟས་(0.48),YES,,
-meal,བཞེས་སྒོ་,medium,0.70,165,བཞེས་སྒོ་(0.70) | ལྟོ་(0.16) | ཟ་(0.30),YES,,
-food,བཞེས་སྒོ་,medium,0.68,723,བཞེས་སྒོ་(0.68) | གི་(0.21) | ལུ་(0.28),YES,,
+rice,ཆུམ་,dict,0.48,104,ཆུམ་(0.48) | ལྟོ་(0.36) | གྱི་(0.15),,འབྲས་ | བྱཱ་ | གསོལ་ཆུམ་,DDC p.255 noun; agrees with corpus
+red rice,ཆུམ་དམརཔོ་,dict,,2,,check - corpus proposed something else,,DDC p.255 noun
+bread,བཱམ་རོ་ཊི་,medium,0.63,126,བཱམ་རོ་ཊི་(0.63) | ཉོ་(0.15) | ཡི(0.16),YES - dictionary gives བཱམ་ཀེབ།,,DDC p.600 noun; corpus kept (medium)
+noodle,རྒྱ་ཐུག་,dict,0.38,8,པུ་ཏ་(0.38) | རྒྱ་ཐུག་(0.50) | ཟ་(0.38),,,DDC p.169 noun; replaced corpus guess པུ་ཏ་
+flour,ཕྱེ་,high,0.87,15,ཕྱེ་(0.87) | བཟོ་(0.20) | དང་(0.20),,རྩམ་པ་ | གསོལ་ཕྱེ་,DDC p.581 noun; agrees with corpus
+milk,ཨོམ་,high,0.96,256,ཨོམ་(0.96) | ཨིན(0.20) | གིས་(0.34),,འོ་མ་ | བཞོ་ | ཨོམ་བཞོ་བ་,DDC p.1094 noun [འོ་མ།]; agrees with corpus
+butter,བ་མར་,dict,0.16,68,བཱམ་རོ་ཊི་(0.16) | མར་(0.91) | དང་(0.25),check - corpus proposed something else,གསོལ་མར་ | མར་དབུར་བ་,DDC p.597 noun; replaced corpus guess བཱམ་རོ་ཊི་
+cheese,དར་ཚི་,dict,0.36,70,དར་ཚིལ་(0.36) | དར་ཚི་(0.46) | ཨོམ་(0.17),,,DDC p.387 noun; replaced corpus guess དར་ཚིལ་
+curd,ཞོ་,dict,,1,,check - corpus proposed something else,གསོལ་ཞོ་,DDC p.816 noun
+yoghurt,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
+tea,ཇ་,high,0.85,319,ཇ་(0.85) | ཕོརཔ་(0.19) | གང་(0.17),YES - dictionary gives ཇ་པ་ཏི།,གསོལ་ཇ་,DDC p.267 noun; corpus kept (high)
+butter tea,སྲུ་ཇ་,dict,,1,,check - corpus proposed something else,,DDC p.1030 noun
+water,ཆུ་,high,0.83,837,ཆུ་(0.83) | ནང་(0.21) | ཨིན(0.16),,གཙང་ཆབ་ | ཆབ་ | གསོལ་ཆུ་,DDC p.249 noun; agrees with corpus
+juice,ཁུ་བ་,medium,0.60,42,ཁུ་བ་(0.60) | ཚལ་(0.19) | འཐུང་(0.19),YES - dictionary gives བཞུ་ཆུ།,ཤིང་ཁུ་ | ཤིང་འབྲས་ཁུ་བ་,DDC p.829 noun; corpus kept (medium)
+meat,ཤ་,medium,0.80,168,ཤ་(0.80) | ཟ་(0.26) | ནི་(0.21),YES,གསོལ་ཤ་ | སྙིང་དོན་ | སྙིང་བཅུད་,DDC p.975 noun [གཟུགས་ཀྱི་ལྷ་པ།]; agrees with corpus
+beef,ནོར་ཤ་,medium,0.77,31,ནོར་ཤ་(0.77) | དང་(0.16) | གིས་(0.39),YES,,DDC p.493 noun; agrees with corpus
+pork,ཕག་ཤ་,high,0.87,15,ཕག་ཤ་(0.87) | ནོར་ཤ་(0.20) | དགའ(0.20),,,DDC p.558 noun; agrees with corpus
+chicken meat,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
+mutton,ར་ཤ་,dict,0.20,5,ཤ་དུམ་(0.20) | ཁོག་(0.20) | ནོར་ཤ་(0.20),check - corpus proposed something else,ལུག་ཤ་,DDC p.902 noun; replaced corpus guess ཤ་དུམ་
+fish meat,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
+egg,སྒོང་རྡོག་,high,0.80,190,སྒོང་རྡོག་(0.80) | ཚུ་(0.31) | ཨིན(0.17),,སྒོ་ང་ | སྒོང་སོན་ | བློ་ཁོག་བཙུགས་པ་,DDC p.188 noun; agrees with corpus
+salt,ཚྭ་,medium,0.77,100,ཚྭ་(0.77) | གནང་(0.24) | ཀྱིས་(0.20),YES,བ་ཚྭ་ | ཚྭ་བཏབ་པ་ | ཚྭ་བླུག་པ་,DDC p.776 noun; agrees with corpus
+sugar,གུ་རམ་,dict,0.44,156,གུ་རམ་(0.44) | རམ་(0.36) | ཀཱ་ཕི་(0.18),,མངར་ཆ་ | བྱེམ་གུ་རམ་,DDC p.107 noun; agrees with corpus
+oil,སྣུམ་,dict,0.43,91,མར་ཁུ་(0.43) | སྣུམ་(0.18) | གྱི་(0.15),,མར་ཁུ་ | ཧུམ་ | ས་སྣུམ་,DDC p.519 noun; replaced corpus guess མར་ཁུ་
+ghee,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
+honey,སྦྲང་རྩི་,medium,0.61,28,སྦྲང་རྩི་(0.61) | གིས་(0.54) | ཨིན(0.21),YES - dictionary gives སྙིང་མཐུན།,,DDC p.312 noun; corpus kept (medium)
+soup,ཁུ་བ་,medium,0.64,84,ཁུ་བ་(0.64) | འདུག(0.18) | ནང་(0.18),YES,ཤ་ཁུ་ | ཚོད་ཁུ་ | ཐུགཔ་,DDC p.69 noun [གཤེར་ཆུའི་རིགས།]; agrees with corpus
+stew,ཤ་ཐུག་,medium,0.64,11,ཤ་ཐུག་(0.64) | དཀྲུག་(0.18) | ནོར་ཤ་(0.18),YES,ལྷོད་བཙོ་ | བཙོ་ | བཙོ་བ་,DDC p.975 noun; agrees with corpus
+curry,ཚོདམ་,medium,0.79,14,ཚོདམ་(0.79) | ལྟོ་(0.29) | ཟ་(0.43),YES,གསོལ་སྒྱེས་,DDC p.773 noun; agrees with corpus
+chilli cheese,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
+porridge,ཐུགཔ་,dict,,0,,check - corpus proposed something else,བག་ཐུག་ | བཞེས་ཐུག་,DDC p.359 noun
+dumpling,མོ་མོ་,dict,,1,,check - corpus proposed something else,,DDC p.698 noun
+momo,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
+pancake,ཁུར་ལེབ་,high,1.00,7,ཁུར་ལེབ་(1.00) | དྲོ་མཛར་(0.29) | དགའ(0.29),YES - dictionary gives བག་ལེབ།,,DDC p.599 noun; corpus kept (high)
+biscuit,ཁབ་ཟས་,dict,0.20,5,བིསི་ཀུཊི་(0.20) | ཇ(0.20) | ང་ཅས་(0.20),check - corpus proposed something else,,DDC p.66 noun; replaced corpus guess བིསི་ཀུཊི་
+cake,མངར་ཁུར་,medium,0.63,254,མངར་ཁུར་(0.63) | མངར་ཟས་(0.15) | ཅིག་(0.21),YES,འཁྱེག་པ་ | སྲ་ཀྲག་ཀྲ་འགྱོ་བ་ | དབུར་,DDC p.218 noun; agrees with corpus
+sweet,མངརམོ་,dict,0.16,89,མངརམོ་(0.16) | འདི་(0.42) | ཅིག་(0.17),,དྲི་ཞིམ་ | མངར་ཏོང་ཏོ་ | ཞིམ་ཏོག་ཏོ་,DDC p.219 adj; agrees with corpus
+pickle,ཟུར་རྫས་,dict,,2,,check - corpus proposed something else,དྭངས་ཟས་,DDC p.842 noun
+vinegar,རྫས་ཁུ་,medium,0.60,5,རྫས་ཁུ་(0.60) | སྔོ་ལྡུམ་(0.20) | བ་སྦྱང་(0.20),YES,,DDC p.797 noun; agrees with corpus
+pepper,ཐིང་ངེ་,dict,0.15,20,ཐིང་ངེ་(0.15) | ཐིང་(0.65) | ངེ་(0.15),,ཐིང་ཕྱེ་བཏབ་པ་,DDC p.358 noun; agrees with corpus
+spice,སྤྲོ་ཚོར་,dict,,3,,check - corpus proposed something else,བཞེས་སྒོའི་རྫས་སྦྱོར་ | རྫས་སྦྱོར་ | སྤྲོ་སྣང་,DDC p.553 noun
+yeast,ཕབས་,dict,,1,,check - corpus proposed something else,ཆང་གི་ཕོཝ་ | ཕོཝ་,DDC p.563 noun
+beer,བི་ཡར་,medium,0.60,268,བི་ཡར་(0.60) | འཐུང་(0.30) | ཡར་(0.23),YES,,DDC p.604 noun; agrees with corpus
+wine,ཝའིན་,medium,0.54,269,ཝའིན་(0.54) | ཆང་(0.29) | གིས་(0.30),YES - dictionary gives རྒུན་ཆང།,དཀར་མཆོད་,DDC p.167 noun; corpus kept (medium)
+liquor,ཆང་,dict,0.29,7,དམ་སྦྱིས་(0.29) | བི་ཡར་(0.29) | ཆང་(0.86),,ཨ་རག་ | ཆབ་ཆུ་,DDC p.245 noun; replaced corpus guess དམ་སྦྱིས་
+breakfast,དྲོ་མཛར་,high,0.95,281,དྲོ་མཛར་(0.95) | ཟ་(0.41) | ཡི(0.24),,,DDC p.423 noun; agrees with corpus
+lunch,ཉི་མའི་ལྟོ་,dict,0.33,392,ཉི་མའི་ལྟོ་(0.33) | ཉིན་མའི་ལྟོ་(0.26) | ལྟོ་(0.16),,གུང་ཚིགས་ | གསོལཝ་ | ཉིན་ལྟོ་,DDC p.288 noun; agrees with corpus
+dinner,ཕྱི་རུའི་ལྟོ་,medium,0.57,446,ཕྱི་རུའི་ལྟོ་(0.57) | ཟ་(0.35) | གི་(0.22),YES,ཚོགས་ | ཚོགས་སྟོན་,DDC p.578 noun; agrees with corpus
+snack,བཞེས་རྩམ་,dict,0.22,23,ལག་ཟས་(0.22) | བཞེས་རྩམ་(0.22) | ཁ་ཟས་(0.48),,ཁ་ཟས་ལག་ཟས་,DDC p.831 noun; replaced corpus guess ལག་ཟས་
+meal,བཞེས་སྒོ་,medium,0.70,165,བཞེས་སྒོ་(0.70) | ལྟོ་(0.16) | ཟ་(0.30),YES,ལྟོ་ཐུན་ | ལྟོ་དུས་ | བཟའ་འཐུང་,DDC p.830 noun; agrees with corpus
+food,བཞེས་སྒོ་,medium,0.68,723,བཞེས་སྒོ་(0.68) | གི་(0.21) | ལུ་(0.28),YES,ཞལ་ཟས་ | ཟས་ | བཟའ་འཐུང་,DDC p.830 noun; agrees with corpus

@@ -1,49 +1,49 @@
 en,dz_preferred,confidence,coverage,carriers,dz_candidates,review,dz_variants,notes
-tree,ཤིང་,high,0.81,452,ཤིང་(0.81) | གུ་(0.17) | ནུག(0.25),,,
-pine,སྟོང་ཕུ་ཤིང་,low,0.33,6,སྟོང་ཕུ་ཤིང་(0.33) | སྟོང་ཕུའི་(0.17) | ཟེགས་(0.17),YES,,
-blue pine,,MISSING,,0,,YES - not in corpus,,
-chir pine,,MISSING,,0,,YES - not in corpus,,
-oak,སི་སི་ཤིང་,low,0.42,12,སི་སི་ཤིང་(0.42) | སྦྱིས་(0.17) | ཞལ་ལག་(0.17),YES,,
-cypress,,MISSING,,0,,YES - not in corpus,,
-fir,,MISSING,,3,,YES - not in corpus,,
-hemlock,,MISSING,,0,,YES - not in corpus,,
-spruce,,MISSING,,0,,YES - not in corpus,,
-juniper,,MISSING,,0,,YES - not in corpus,,
-rhododendron,,MISSING,,0,,YES - not in corpus,,
-magnolia,,MISSING,,0,,YES - not in corpus,,
-maple,,MISSING,,1,,YES - not in corpus,,
-birch,,MISSING,,3,,YES - not in corpus,,
-willow,,MISSING,,2,,YES - not in corpus,,
-poplar,,MISSING,,0,,YES - not in corpus,,
-alder,,MISSING,,0,,YES - not in corpus,,
-walnut tree,,MISSING,,0,,YES - not in corpus,,
+tree,ཤིང་,high,0.81,452,ཤིང་(0.81) | གུ་(0.17) | ནུག(0.25),,སྔོ་ཤིང་,DDC p.980 noun; agrees with corpus
+pine,སྟོང་ཕུ་,dict,0.33,6,སྟོང་ཕུ་ཤིང་(0.33) | སྟོང་ཕུའི་(0.17) | ཟེགས་(0.17),check - corpus proposed something else,མྱ་ངན་འབད་བ་,DDC p.341 noun; replaced corpus guess སྟོང་ཕུ་ཤིང་
+blue pine,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
+chir pine,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
+oak,སི་སི་ཤིང་,dict,0.42,12,སི་སི་ཤིང་(0.42) | སྦྱིས་(0.17) | ཞལ་ལག་(0.17),,སྦྱིས་ཤིང་,DDC p.1009 noun; agrees with corpus
+cypress,ཤུག་པ་,dict,,0,,check - corpus proposed something else,,DDC p.983 noun
+fir,གདུང་ཤིང་,dict,,3,,check - corpus proposed something else,ཐང་ཤིང་,DDC p.431 noun
+hemlock,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
+spruce,ནགས་ཤིང་,dict,,0,,check - corpus proposed something else,བ་ཤིང་ | བཟོ་བཟོ་བ་ | གཙང་ཏོག་ཏོ་བཟོ་བ་,DDC p.480 noun
+juniper,རྒྱ་ཤུག་,dict,,0,,check - corpus proposed something else,ཤུག་པ་,DDC p.170 noun
+rhododendron,ཨེ་ཏོ་མེ་ཏོག་,dict,,0,,check - corpus proposed something else,,DDC p.1091 noun
+magnolia,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
+maple,སྤྱ་ལགམ་ཤིང་,dict,,1,,check - corpus proposed something else,,DDC p.542 noun
+birch,སྟག་ཤིང་,dict,,3,,check - corpus proposed something else,སྟག་པ་ཤིང་ | སྟག་ཤིང་སྦྱིག་དུམ་ | འཁརཝ་,DDC p.338 noun
+willow,ལྕང་མ་,dict,,2,,check - corpus proposed something else,,DDC p.238 noun
+poplar,དཀར་ཤིང་,dict,,0,,check - corpus proposed something else,,DDC p.10 noun
+alder,སྒ་མ་ཤིང་,dict,,0,,check - corpus proposed something else,,DDC p.185 noun
+walnut tree,སྟར་ཤིང་,dict,,0,,check - corpus proposed something else,,DDC p.340 noun
 apple tree,ཨེ་པཱལ་ཤིང་,low,0.15,13,ཨེ་པཱལ་ཤིང་(0.15) | ཨེ་པཱལ་(0.62) | ལྡུམ་ར་(0.46),YES,,
-mango tree,,MISSING,,0,,YES - not in corpus,,
-peach tree,ཁམ་ཤིང་,medium,0.50,4,ཁམ་ཤིང་(0.50) | ཁམ་(0.25) | ཀེ་བ་(0.25),YES,,
-orange tree,,MISSING,,2,,YES - not in corpus,,
-banana tree,,MISSING,,0,,YES - not in corpus,,
-bamboo,སྦ་,low,0.38,8,སྦ་(0.38) | ལག་གཟེམ་(0.25) | བཀོད་རྒྱ་(0.25),YES,,
-cane,འཁརཝ་,low,0.47,15,འཁརཝ་(0.47) | ཚར་(0.33) | གྱི་(0.20),YES,,
-teak,,MISSING,,1,,YES - not in corpus,,
-sal,,MISSING,,0,,YES - not in corpus,,
-sandalwood,,MISSING,,0,,YES - not in corpus,,
-banyan,,MISSING,,0,,YES - not in corpus,,
-peepal,,MISSING,,0,,YES - not in corpus,,
-fig tree,,MISSING,,0,,YES - not in corpus,,
-cedar,,MISSING,,1,,YES - not in corpus,,
+mango tree,ཨམ་ཤིང་,dict,,0,,check - corpus proposed something else,,DDC p.1087 noun
+peach tree,ཁམ་ཤིང་,medium,0.50,4,ཁམ་ཤིང་(0.50) | ཁམ་(0.25) | ཀེ་བ་(0.25),YES,,DDC p.67 noun; agrees with corpus
+orange tree,,MISSING,,2,,YES - not in corpus,,not in DDC dictionary
+banana tree,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
+bamboo,སྦ་,dict,0.38,8,སྦ་(0.38) | ལག་གཟེམ་(0.25) | བཀོད་རྒྱ་(0.25),,སྤག་ཤིང་ | ཚར་,DDC p.650 noun; agrees with corpus
+cane,ཚར་,dict,0.47,15,འཁརཝ་(0.47) | ཚར་(0.33) | གྱི་(0.20),,སྤ་ཚར་ | ཚར་གྱི་འཁརཝ་,DDC p.757 noun [སྦ།]; replaced corpus guess འཁརཝ་
+teak,ཊིག་,dict,,1,,check - corpus proposed something else,,DDC p.319 noun
+sal,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
+sandalwood,ཙན་དན་,dict,,0,,check - corpus proposed something else,,DDC p.719 noun
+banyan,ཕྱོགས་ཁྱབ་ཤིང་,dict,,0,,check - corpus proposed something else,ཤིང་ཕྱོགས་ཁྱབ་,DDC p.583 noun
+peepal,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
+fig tree,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
+cedar,ཐང་ཤིང་,dict,,1,,check - corpus proposed something else,ཐང་ཆུ་,DDC p.352 noun
 cherry tree,ཅེ་རི་ཤིང་,medium,0.58,12,ཅེ་རི་ཤིང་(0.58) | ཅེ་རིའི་(0.17) | བཏོགས་བཏང་(0.17),YES,,
-chestnut tree,,MISSING,,0,,YES - not in corpus,,
-eucalyptus,,MISSING,,0,,YES - not in corpus,,
-acacia,,MISSING,,0,,YES - not in corpus,,
-mulberry tree,,MISSING,,0,,YES - not in corpus,,
-bush,བསྐོར་,low,0.29,21,བསྐོར་(0.29) | ཚལ་མ་(0.19) | སླབ(0.19),YES,,
-shrub,ཧོན་ལྡུམ་,low,0.43,7,ཧོན་ལྡུམ་(0.43) | བཙུགས་(0.43) | ཆ་རོགས་(0.43),YES,,
-grass,རྩྭ་,medium,0.60,63,རྩྭ་(0.60) | སྡོད་(0.16) | ཨིན(0.21),YES,,
-flower,མེ་ཏོག་,high,0.87,318,མེ་ཏོག་(0.87) | ཚུ་(0.42) | ནང་(0.16),,,
-leaf,འདབ་མ་,medium,0.69,13,འདབ་མ་(0.69) | འབུད་(0.15) | བུད་(0.31),YES,,
-root,ར་ཏོ་,low,0.24,29,ར་ཏོ་(0.24) | གི་(0.52) | ར་(0.17),YES,,
-branch,ཞལ་ལག་,low,0.38,47,ཞལ་ལག་(0.38) | ཡན་ལག་(0.32) | ཤིང་(0.23),YES,,
-trunk,ལྕགས་སྒྲོམ་,low,0.45,22,ལྕགས་སྒྲོམ་(0.45) | སྒྲོམ་(0.18) | ཀཱར་(0.23),YES,,
-bark,ཧབ་,medium,0.67,30,ཧབ་(0.67) | རོ་ཁྱི་(0.73) | ཨ་རྟག་ར་(0.20),YES,,
-seed,སོན་,high,0.88,34,སོན་(0.88) | བཏབ་(0.21) | ཚུ་(0.56),,,
-fruit,ཤིང་འབྲས་,high,0.83,147,ཤིང་འབྲས་(0.83) | དང་(0.19) | ཀྱི་(0.16),,,
+chestnut tree,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
+eucalyptus,ཀྲོབ་མདའ་ཤིང་,dict,,0,,check - corpus proposed something else,རྒྱ་གར་ལྕང་ཤིང་,DDC p.7 noun
+acacia,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
+mulberry tree,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
+bush,ཚལ་མ་,dict,0.29,21,བསྐོར་(0.29) | ཚལ་མ་(0.19) | སླབ(0.19),,སྤང་ཚལ་,DDC p.758 noun; replaced corpus guess བསྐོར་
+shrub,ཧོན་ལྡུམ་,dict,0.43,7,ཧོན་ལྡུམ་(0.43) | བཙུགས་(0.43) | ཆ་རོགས་(0.43),,སྔོ་ལྡུམ་ | སྔོ་ཚལ་,DDC p.1072 noun; agrees with corpus
+grass,རྩྭ་,medium,0.60,63,རྩྭ་(0.60) | སྡོད་(0.16) | ཨིན(0.21),YES,རྩྭ་ཐང་,DDC p.744 noun; agrees with corpus
+flower,མེ་ཏོག་,high,0.87,318,མེ་ཏོག་(0.87) | ཚུ་(0.42) | ནང་(0.16),,མེ་ཏོག་ཤར་བ་,DDC p.692 noun; agrees with corpus
+leaf,འདབ་མ་,medium,0.69,13,འདབ་མ་(0.69) | འབུད་(0.15) | བུད་(0.31),YES,ཤོམ་འདབ་ | ལོ་འདབ་ | ཤོག་ལེབ་,DDC p.446 noun; agrees with corpus
+root,ར་ཏོ་,dict,0.24,29,ར་ཏོ་(0.24) | གི་(0.52) | ར་(0.17),,རྩ་གྲངས་ | ཤིང་རྩ་ | ཤིང་གི་ར་ཏོ་,DDC p.901 noun; agrees with corpus
+branch,ཞལ་ལག་,dict,0.38,47,ཞལ་ལག་(0.38) | ཡན་ལག་(0.32) | ཤིང་(0.23),,ཡན་ལག་ | ཡལ་ག་ | ཡལ་འདབ་,DDC p.809 noun; agrees with corpus
+trunk,ལྕགས་སྒྲོམ་,dict,0.45,22,ལྕགས་སྒྲོམ་(0.45) | སྒྲོམ་(0.18) | ཀཱར་(0.23),,སྒྲོམ་སྦོམ་ | སྡོང་པོ་ | ཤིང་རྐང་,DDC p.236 noun; agrees with corpus
+bark,ཧབ་,medium,0.67,30,ཧབ་(0.67) | རོ་ཁྱི་(0.73) | ཨ་རྟག་ར་(0.20),YES,ཁྱི་སྐད་ | ཀྲོབ་མདའི་སྒྲ་ | ཤིང་ལྤགས་,DDC p.1064 verb [ཟུག་པ།]; agrees with corpus
+seed,སོན་,high,0.88,34,སོན་(0.88) | བཏབ་(0.21) | ཚུ་(0.56),,ས་བོན་ | ཕ་སོན་ | ཐིག་ལེ་,DDC p.1025 noun; agrees with corpus
+fruit,ཤིང་འབྲས་,high,0.83,147,ཤིང་འབྲས་(0.83) | དང་(0.19) | ཀྱི་(0.16),,ཤིང་ཏོག་ | ཤིང་ཐོག་ | ཟ་,DDC p.982 noun; agrees with corpus

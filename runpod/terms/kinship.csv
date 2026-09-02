@@ -1,43 +1,43 @@
 en,dz_preferred,confidence,coverage,carriers,dz_candidates,review,dz_variants,notes
-mother,ཨའི་,high,0.95,902,ཨའི་(0.95) | ངེའི་(0.31) | གི་(0.25),,,
-father,ཨ་པ་,high,0.94,1228,ཨ་པ་(0.94) | ངེའི་(0.39) | གི་(0.24),,,
-parents,ཕམ་,high,0.97,587,ཕམ་(0.97) | ངེའི་(0.20) | ཚུ་(0.34),,,
-brother,ནུ་གཅུང་,low,0.16,693,ནུ་གཅུང་(0.16) | ཕོ་རྒནམ་(0.41) | ཕོ་སྤུན་(0.15),YES,,
-sister,ཨ་ཞེམོ་,low,0.31,665,ཨ་ཞེམོ་(0.31) | ནུམོ་(0.16) | སྲིངམོ་(0.18),YES,,
-elder brother,,MISSING,,2,,YES - not in corpus,,
-elder sister,ཨ་ཞེམ་,low,0.17,12,ཨ་ཞེམ་(0.17) | ཨ་ཞེམོ་(0.67) | གཉེན་(0.33),YES,,
-younger brother,ནུ་ཅུང་,low,0.31,16,ནུ་ཅུང་(0.31) | ནུ་གཅུང་(0.56) | ཆུང་ཤོས་(0.31),YES,,
-younger sister,ནུམོ་,medium,0.50,26,ནུམོ་(0.50) | ཆུང་ཤོས་(0.23) | སྲིངམོ་(0.31),YES,,
-uncle,ཨ་ཞང་,high,0.94,191,ཨ་ཞང་(0.94) | ངེའི་(0.39) | སྡོད་(0.16),,,
-aunt,ཨ་ནེ་,medium,0.59,59,ཨ་ནེ་(0.59) | ཨ་མ་(0.15) | ངེའི་(0.51),YES,,
-son,བུ་,high,0.87,464,བུ་(0.87) | ཁོ་རའི་(0.17) | ངེའི་(0.21),,,
-daughter,བུམོ་,high,0.97,351,བུམོ་(0.97) | ངེའི་(0.18) | ཡོད(0.17),,,
-child,ཨ་ལུ་,medium,0.67,481,ཨ་ལུ་(0.67) | ཨ་ལོ་(0.25) | སྦེ་(0.18),YES,,
+mother,ཨའི་,high,0.95,902,ཨའི་(0.95) | ངེའི་(0.31) | གི་(0.25),,ཨ་མ་ | ཡུམ་ | མ་ཡུམ་,DDC p.1089 noun; agrees with corpus
+father,ཨ་པ་,high,0.94,1228,ཨ་པ་(0.94) | ངེའི་(0.39) | གི་(0.24),,ཨཔ་ | ཕ་རྒན་ | སྲོལ་བཙུགས་མི་,DDC p.1082 noun; agrees with corpus
+parents,ཕམ་,high,0.97,587,ཕམ་(0.97) | ངེའི་(0.20) | ཚུ་(0.34),YES - dictionary gives ཕ་མ།,ཡབ་ཡུམ་,DDC p.557 noun; corpus kept (high)
+brother,ཕོ་རྒནམ་,dict,0.16,693,ནུ་གཅུང་(0.16) | ཕོ་རྒནམ་(0.41) | ཕོ་སྤུན་(0.15),,ཕོ་སྤུན་ | བུ་སྤུན་,DDC p.568 noun; replaced corpus guess ནུ་གཅུང་
+sister,ནུམོ་,dict,0.31,665,ཨ་ཞེམོ་(0.31) | ནུམོ་(0.16) | སྲིངམོ་(0.18),,མོ་སྤུན་ | སྨན་གཡོགམོ་གོངམ་ | ཡེ་ཤུའི་ཨ་ཎེམོ་,DDC p.490 noun; replaced corpus guess ཨ་ཞེམོ་
+elder brother,གཅེན་,dict,,2,,check - corpus proposed something else,ཕོ་རྒནམ་,DDC p.231 noun
+elder sister,ཨ་ཞེམོ་,dict,0.17,12,ཨ་ཞེམ་(0.17) | ཨ་ཞེམོ་(0.67) | གཉེན་(0.33),,,DDC p.1083 noun; replaced corpus guess ཨ་ཞེམ་
+younger brother,ནུ་གཅུང་,dict,0.31,16,ནུ་ཅུང་(0.31) | ནུ་གཅུང་(0.56) | ཆུང་ཤོས་(0.31),,གཅུང་,DDC p.489 noun; replaced corpus guess ནུ་ཅུང་
+younger sister,ནུམོ་,medium,0.50,26,ནུམོ་(0.50) | ཆུང་ཤོས་(0.23) | སྲིངམོ་(0.31),YES - dictionary gives སྲིངམོ།,ནུ་མོ་,DDC p.1029 noun; corpus kept (medium)
+uncle,ཨ་ཞང་,high,0.94,191,ཨ་ཞང་(0.94) | ངེའི་(0.39) | སྡོད་(0.16),,ཨ་ཁུ་,DDC p.1083 noun; agrees with corpus
+aunt,ཨ་ནེ་,medium,0.59,59,ཨ་ནེ་(0.59) | ཨ་མ་(0.15) | ངེའི་(0.51),YES,,DDC p.1082 noun; agrees with corpus
+son,བུ་,high,0.87,464,བུ་(0.87) | ཁོ་རའི་(0.17) | ངེའི་(0.21),,བུཚ་ | སྲས་,DDC p.604 noun; agrees with corpus
+daughter,བུམོ་,high,0.97,351,བུམོ་(0.97) | ངེའི་(0.18) | ཡོད(0.17),,སྲསམོ་,DDC p.606 noun; agrees with corpus
+child,ཨ་ལུ་,medium,0.67,481,ཨ་ལུ་(0.67) | ཨ་ལོ་(0.25) | སྦེ་(0.18),YES,བྱིས་པ་,DDC p.1084 noun; agrees with corpus
 children,ཨ་ལུ་,medium,0.67,1032,ཨ་ལུ་(0.67) | ཨ་ལོ་(0.28) | ཚུ་(0.63),YES,,
-baby,ཨ་ལོ་,low,0.30,305,ཨ་ལོ་(0.30) | ཨ་ལུ་(0.63) | ནུག(0.16),YES,,
-grandmother,ཨང་རྒས་,high,0.92,93,ཨང་རྒས་(0.92) | ངེ་གི་(0.23) | ངེའི་(0.34),,,
-grandfather,ཨ་རྒས་,high,0.98,118,ཨ་རྒས་(0.98) | ངེའི་(0.40) | ཀྱི་(0.19),,,
-grandson,དི་བུ་,low,0.17,12,དི་བུ་(0.17) | ཚ་བོ་(0.67) | ཨ་རྒས་(0.17),YES,,
-granddaughter,ཚམོ་ཅུང་,low,0.33,6,ཚམོ་ཅུང་(0.33) | ཚམོ་(0.67) | རྒན་རྒས་(0.17),YES,,
-wife,ཨམ་སྲུ་,high,0.88,425,ཨམ་སྲུ་(0.88) | ཁོ་རའི་(0.16) | ངེའི་(0.28),,,
-husband,རྨགཔ་,high,0.97,200,རྨགཔ་(0.97) | མོ་རའི་(0.23) | མོ་(0.43),,,
-spouse,གཉེན་གྲོགས་,low,0.38,8,གཉེན་གྲོགས་(0.38) | བཟའ་ཟླ་(0.25) | གུས་ཞབས་(0.25),YES,,
-cousin,ཉེ་སྤུན་,low,0.49,63,ཉེ་སྤུན་(0.49) | སྤུན་ཆ་(0.40) | ངེའི་(0.27),YES,,
-nephew,ཚབོ་,low,0.30,10,ཚབོ་(0.30) | ཚ་བོ་(0.70) | བུ་(0.30),YES,,
-niece,དྲནམ་ཁུག་,low,0.20,10,དྲནམ་ཁུག་(0.20) | ཚམོ་(0.40) | ཚ་མོ་(0.40),YES,,
-in-law,,MISSING,,0,,YES - not in corpus,,
-father-in-law,,MISSING,,0,,YES - not in corpus,,
-mother-in-law,,MISSING,,0,,YES - not in corpus,,
-family,བཟའ་ཚང་,high,0.86,660,བཟའ་ཚང་(0.86) | དང་(0.18) | གི་(0.30),,,
-relative,ཉེ་ཚན་,medium,0.50,28,ཉེ་ཚན་(0.50) | གཅིག་ཁར་(0.21) | དང་(0.36),YES,,
-friend,ཆ་རོགས་,high,0.97,1555,ཆ་རོགས་(0.97) | ངེའི་(0.18) | དང་(0.17),,,
-neighbour,ཁྱིམ་ཚང་,high,1.00,18,ཁྱིམ་ཚང་(1.00) | ཁོང་(0.22) | ངེའི་(0.17),,,
-guest,མགྱོནམ་,low,0.48,119,མགྱོནམ་(0.48) | མགྱོནམོ་(0.34) | ཚུ་(0.30),YES,,
-boy,བུཚ་,medium,0.66,660,བུཚ་(0.66) | བུཚུ་(0.17) | ཚུ་(0.18),YES,,
-girl,བུམོ་,high,0.94,662,བུམོ་(0.94) | ཅིག་(0.27) | ཚུ་(0.16),,,
-man,ཕོ་སྐྱེས་,low,0.41,1164,ཕོ་སྐྱེས་(0.41) | མི་(0.54) | ཅིག་(0.35),YES,,
-woman,ཨམ་སྲུ་,medium,0.79,302,ཨམ་སྲུ་(0.79) | མོ་(0.18) | ཅིག་(0.37),YES,,
-elder,ཨ་ཞེམོ་,low,0.36,22,ཨ་ཞེམོ་(0.36) | གུས་ཞབས་(0.18) | གཉེན་(0.18),YES,,
-twin,མཚེ་,low,0.42,72,མཚེ་(0.42) | མཚེ་མ་(0.32) | མ་(0.51),YES,,
-orphan,དྭཝ་བུཚ་,medium,0.69,13,དྭཝ་བུཚ་(0.69) | དྭ་ཕྲུག་(0.23) | བུ་ཚབ་(0.46),YES,,
-widow,ས་མོ་,low,0.22,9,ས་མོ་(0.22) | ཡུག་(0.22) | ཡུགས་(0.22),YES,,
+baby,ཨ་ལུ་,dict,0.30,305,ཨ་ལོ་(0.30) | ཨ་ལུ་(0.63) | ནུག(0.16),,ཕྲུག་ | ཕྱུ་གུ་,DDC p.1084 noun; replaced corpus guess ཨ་ལོ་
+grandmother,ཨང་རྒས་,high,0.92,93,ཨང་རྒས་(0.92) | ངེ་གི་(0.23) | ངེའི་(0.34),,ཨ་བི་,DDC p.1086 noun; agrees with corpus
+grandfather,ཨ་རྒས་,high,0.98,118,ཨ་རྒས་(0.98) | ངེའི་(0.40) | ཀྱི་(0.19),,,DDC p.1081 noun [ཇོ་ཇོ།]; agrees with corpus
+grandson,དི་བུ་,dict,0.17,12,དི་བུ་(0.17) | ཚ་བོ་(0.67) | ཨ་རྒས་(0.17),,ཚ་བོ་,DDC p.388 noun; agrees with corpus
+granddaughter,ཚམོ་,dict,0.33,6,ཚམོ་ཅུང་(0.33) | ཚམོ་(0.67) | རྒན་རྒས་(0.17),,དི་བུམོ་,DDC p.757 noun; replaced corpus guess ཚམོ་ཅུང་
+wife,ཨམ་སྲུ་,high,0.88,425,ཨམ་སྲུ་(0.88) | ཁོ་རའི་(0.16) | ངེའི་(0.28),,གནས་མོ་ | གནས་ཚང་ | གསང་ཡུམ་,DDC p.1087 noun; agrees with corpus
+husband,རྨགཔ་,high,0.97,200,རྨགཔ་(0.97) | མོ་རའི་(0.23) | མོ་(0.43),,,DDC p.713 noun; agrees with corpus
+spouse,གཉེན་གྲོགས་,dict,0.38,8,གཉེན་གྲོགས་(0.38) | བཟའ་ཟླ་(0.25) | གུས་ཞབས་(0.25),,བཟའ་ཟླ་ | གཉེན་ཡ་ | གཏན་གྲོགས་,DDC p.304 noun; agrees with corpus
+cousin,ཉེ་སྤུན་,dict,0.49,63,ཉེ་སྤུན་(0.49) | སྤུན་ཆ་(0.40) | ངེའི་(0.27),,སྤུན་ཆ་ | ཉེཝ་ | རིགས་གཅིག་པ་,DDC p.292 noun; agrees with corpus
+nephew,ཚ་བོ་,dict,0.30,10,ཚབོ་(0.30) | ཚ་བོ་(0.70) | བུ་(0.30),,སྐུ་ཚ་བོ་,DDC p.751 noun; replaced corpus guess ཚབོ་
+niece,ཚ་མོ་,dict,0.20,10,དྲནམ་ཁུག་(0.20) | ཚམོ་(0.40) | ཚ་མོ་(0.40),,ཚམོ་ | སྐུ་ཚམོ་,DDC p.751 noun; replaced corpus guess དྲནམ་ཁུག་
+in-law,གཉེན་ཚན་,dict,,0,,check - corpus proposed something else,,DDC p.305 noun (as 'in-laws')
+father-in-law,གྱོསཔོ་,dict,,0,,check - corpus proposed something else,,DDC p.119 noun
+mother-in-law,སྒྱུགམོ་,dict,,0,,check - corpus proposed something else,,DDC p.191 noun
+family,བཟའ་ཚང་,high,0.86,660,བཟའ་ཚང་(0.86) | དང་(0.18) | གི་(0.30),,བཟའ་ཚན་ | མི་ཚང་ | ནང་ཚན་,DDC p.852 noun; agrees with corpus
+relative,ཉེ་ཚན་,medium,0.50,28,ཉེ་ཚན་(0.50) | གཅིག་ཁར་(0.21) | དང་(0.36),YES,ལྟོས་ཁྱད་ | ཉེཝ་ | ནང་རྡོག་,DDC p.292 noun; agrees with corpus
+friend,ཆ་རོགས་,high,0.97,1555,ཆ་རོགས་(0.97) | ངེའི་(0.18) | དང་(0.17),,གྲོགས་ | མཛའ་གྲོགས་ | རོགས་,DDC p.243 noun; agrees with corpus
+neighbour,ཁྱིམ་ཚང་,high,1.00,18,ཁྱིམ་ཚང་(1.00) | ཁོང་(0.22) | ངེའི་(0.17),,ཁྱིམ་མཚེས་,DDC p.80 noun; agrees with corpus
+guest,མགྲོན་པོ་,dict,0.48,119,མགྱོནམ་(0.48) | མགྱོནམོ་(0.34) | ཚུ་(0.30),check - corpus proposed something else,སྐུ་མགྲོན་,DDC p.152 noun; replaced corpus guess མགྱོནམ་
+boy,བུཚ་,medium,0.66,660,བུཚ་(0.66) | བུཚུ་(0.17) | ཚུ་(0.18),YES,ཕོ་གཞོན་ | གཞོན་ནུ་ | ཕོ་སྐྱེས་བུཚ་,DDC p.606 noun; agrees with corpus
+girl,བུམོ་,high,0.94,662,བུམོ་(0.94) | ཅིག་(0.27) | ཚུ་(0.16),,བུམོ་ཅུང་ | སྨན་ཆུང་,DDC p.606 noun; agrees with corpus
+man,མི་,dict,0.41,1164,ཕོ་སྐྱེས་(0.41) | མི་(0.54) | ཅིག་(0.35),,ཕོ་སྐྱེས་ | ཕོ་རྒྱ་ | གཡོགཔ་བཙུགས་,DDC p.672 noun [འགྲོ་བ།]; replaced corpus guess ཕོ་སྐྱེས་
+woman,ཨམ་སྲུ་,medium,0.79,302,ཨམ་སྲུ་(0.79) | མོ་(0.18) | ཅིག་(0.37),YES - dictionary gives མོ།,ཟམོ་ | བུད་མེད་,DDC p.697 noun; corpus kept (medium)
+elder,རྒན་རྒས་,dict,0.36,22,ཨ་ཞེམོ་(0.36) | གུས་ཞབས་(0.18) | གཉེན་(0.18),check - corpus proposed something else,རྒན་པ་ | སྐུ་བགྲེས་ | རྒས་ཤོས་,DDC p.165 noun; replaced corpus guess ཨ་ཞེམོ་
+twin,མཚེ་མ་,dict,0.42,72,མཚེ་(0.42) | མཚེ་མ་(0.32) | མ་(0.51),,མཉམ་སྦྲེལ་ | མཉམ་བཙུགས་ | འདྲ་བ་གཉིས་ལས་གཅིག་,DDC p.780 noun; replaced corpus guess མཚེ་
+orphan,དྭཝ་བུཚ་,medium,0.69,13,དྭཝ་བུཚ་(0.69) | དྭ་ཕྲུག་(0.23) | བུ་ཚབ་(0.46),YES - dictionary gives དྭ་ཕྲུག,ཕམ་མེད་ཨ་ལུ་,DDC p.409 noun; corpus kept (medium)
+widow,ཡུགས་སམོ་,dict,0.22,9,ས་མོ་(0.22) | ཡུག་(0.22) | ཡུགས་(0.22),check - corpus proposed something else,,DDC p.883 noun; replaced corpus guess ས་མོ་

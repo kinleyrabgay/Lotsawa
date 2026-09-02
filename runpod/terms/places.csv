@@ -1,48 +1,48 @@
 en,dz_preferred,confidence,coverage,carriers,dz_candidates,review,dz_variants,notes
-thimphu,ཐིམ་ཕུ་,low,0.17,83,ཐིམ་ཕུ་(0.17) | ཐིམ་ཕུག་(0.83) | སྡོདཔ་(0.18),YES,,
+thimphu,ཐིམ་ཕུག་,dict,0.17,83,ཐིམ་ཕུ་(0.17) | ཐིམ་ཕུག་(0.83) | སྡོདཔ་(0.18),,,DDC countries.tsv; replaced corpus guess ཐིམ་ཕུ་
 paro,སྤ་རོ་,high,0.97,37,སྤ་རོ་(0.97) | རྡོ་རྗེ་(0.19) | འགྱོ་(0.19),,,
 punakha,སྤུ་ན་ཁ་,high,0.80,10,སྤུ་ན་ཁ་(0.80) | འགྱོ་(0.40) | ཨིན་(0.20),,,
-wangdue,,MISSING,,3,,YES - not in corpus,,
+wangdue,,MISSING,,3,,YES - not in corpus,,not in DDC dictionary
 bumthang,བུམ་ཐང་,high,1.00,6,བུམ་ཐང་(1.00) | རྩེད་རིགས་ཚོགས་པ་(0.17) | གཡུལ་(0.17),,,
-trongsa,,MISSING,,3,,YES - not in corpus,,
-trashigang,,MISSING,,2,,YES - not in corpus,,
-trashiyangtse,,MISSING,,3,,YES - not in corpus,,
-mongar,,MISSING,,1,,YES - not in corpus,,
-lhuentse,,MISSING,,1,,YES - not in corpus,,
-pemagatshel,,MISSING,,1,,YES - not in corpus,,
-samdrup jongkhar,,MISSING,,2,,YES - not in corpus,,
-samtse,,MISSING,,3,,YES - not in corpus,,
-chukha,,MISSING,,0,,YES - not in corpus,,
-haa,,MISSING,,3,,YES - not in corpus,,
-gasa,,MISSING,,3,,YES - not in corpus,,
-dagana,,MISSING,,1,,YES - not in corpus,,
-tsirang,,MISSING,,0,,YES - not in corpus,,
-sarpang,,MISSING,,1,,YES - not in corpus,,
-zhemgang,,MISSING,,0,,YES - not in corpus,,
+trongsa,,MISSING,,3,,YES - not in corpus,,not in DDC dictionary
+trashigang,,MISSING,,2,,YES - not in corpus,,not in DDC dictionary
+trashiyangtse,,MISSING,,3,,YES - not in corpus,,not in DDC dictionary
+mongar,མོང་གར་,dict,,1,,check - corpus proposed something else,ཁྱོད་ཅག་ང་ཅག་,DDC names_indic.tsv
+lhuentse,,MISSING,,1,,YES - not in corpus,,not in DDC dictionary
+pemagatshel,,MISSING,,1,,YES - not in corpus,,not in DDC dictionary
+samdrup jongkhar,,MISSING,,2,,YES - not in corpus,,not in DDC dictionary
+samtse,,MISSING,,3,,YES - not in corpus,,not in DDC dictionary
+chukha,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
+haa,,MISSING,,3,,YES - not in corpus,,not in DDC dictionary
+gasa,,MISSING,,3,,YES - not in corpus,,not in DDC dictionary
+dagana,,MISSING,,1,,YES - not in corpus,,not in DDC dictionary
+tsirang,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
+sarpang,,MISSING,,1,,YES - not in corpus,,not in DDC dictionary
+zhemgang,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
 gelephu,དགེ་ལེགས་ཕུ་,medium,0.50,6,དགེ་ལེགས་ཕུ་(0.50) | དགེ་ལེགས་ཕུག་(0.33) | ཨསེ་(0.17),YES,,
-phuentsholing,,MISSING,,1,,YES - not in corpus,,
-bhutan,འབྲུག་,medium,0.77,74,འབྲུག་(0.77) | རྒྱལ་ཁབ་(0.24) | ཨིན(0.41),YES,,
-india,རྒྱ་གར་,high,0.96,97,རྒྱ་གར་(0.96) | གྱི་(0.19) | ལས་(0.19),,,
-nepal,བལ་ཡུལ་,medium,0.50,4,བལ་ཡུལ་(0.50) | བལ་པོ་(0.25) | ནེ་པཱལ་(0.25),YES,,
-china,རྒྱ་ནག་,high,0.95,103,རྒྱ་ནག་(0.95) | ལས་(0.32) | ཨིན(0.32),,,
-tibet,བོད་,high,0.80,5,བོད་(0.80) | བོད་དབུས་ཀྱི་གནའ་དུས་ལྷ་ཁང(0.20) | ཁྲུང་ཁྲུང་ལ་(0.20),,,
-bangladesh,,MISSING,,1,,YES - not in corpus,,
-japan,ཇ་པཱན་,medium,0.74,374,ཇ་པཱན་(0.74) | གྱི་(0.23) | ལས་(0.18),YES,,
+phuentsholing,,MISSING,,1,,YES - not in corpus,,not in DDC dictionary
+bhutan,འབྲུག་,medium,0.77,74,འབྲུག་(0.77) | རྒྱལ་ཁབ་(0.24) | ཨིན(0.41),YES,འབྲུག་ཡུལ་ | མོན་ཡུལ་ | འབྲུག ཡང་ན་བྷུ་ཊཱན་,DDC p.647 noun [རྒྱལ་ཁབ་ཀྱི་མིང་།]; agrees with corpus
+india,རྒྱ་གར་,high,0.96,97,རྒྱ་གར་(0.96) | གྱི་(0.19) | ལས་(0.19),,རྒྱ་དཀར་ | འཕགས་ཡུལ་ | རྒྱ་གར། ཡང་ན་ཨིན་ཌི་ཡ་,DDC p.168 noun [རྒྱལ་ཁབ།]; agrees with corpus
+nepal,བལ་ཡུལ་,medium,0.50,4,བལ་ཡུལ་(0.50) | བལ་པོ་(0.25) | ནེ་པཱལ་(0.25),YES - dictionary gives བལ་པོ།,བལ་པོ། ཡང་ན་ནེ་པཱལ་,DDC p.603 noun; corpus kept (medium)
+china,རྒྱ་ནག་,high,0.95,103,རྒྱ་ནག་(0.95) | ལས་(0.32) | ཨིན(0.32),,རྒྱ་ནག ཡང་ན་ཅཱའི་ན་ | དཀར་ཡོལ་,DDC p.169 noun; agrees with corpus
+tibet,བོད་,high,0.80,5,བོད་(0.80) | བོད་དབུས་ཀྱི་གནའ་དུས་ལྷ་ཁང(0.20) | ཁྲུང་ཁྲུང་ལ་(0.20),,,DDC p.607 noun; agrees with corpus
+bangladesh,བྷང་ལ་དེཤ་,dict,,1,,check - corpus proposed something else,,DDC countries.tsv
+japan,ཇ་པཱན་,medium,0.74,374,ཇ་པཱན་(0.74) | གྱི་(0.23) | ལས་(0.18),YES - dictionary gives ཉི་ཧོངས།,ཇཱ་པཱན་,DDC p.289 noun; corpus kept (medium)
 korea,ལྷོ་ཀོ་རི་ཡ་,low,0.18,17,ལྷོ་ཀོ་རི་ཡ་(0.18) | ཀོ་རི་ཡ་(0.41) | མནོ་(0.18),YES,,
-thailand,ཐའི་ལེནཌ་,medium,0.60,10,ཐའི་ལེནཌ་(0.60) | བེང་ཀོག་(0.40) | ཨེ་ཤི་ཡ་(0.20),YES,,
-singapore,སིང་ག་པོར་,medium,0.75,8,སིང་ག་པོར་(0.75) | སིང་ག་པུར་(0.25) | ཚིལ་མ་(0.25),YES,,
+thailand,ཐའི་ལེནཌ་,medium,0.60,10,ཐའི་ལེནཌ་(0.60) | བེང་ཀོག་(0.40) | ཨེ་ཤི་ཡ་(0.20),YES - dictionary gives ཐཱའི་ལེནཌ།,,DDC countries.tsv; corpus kept (medium)
+singapore,སིང་ག་པོར་,medium,0.75,8,སིང་ག་པོར་(0.75) | སིང་ག་པུར་(0.25) | ཚིལ་མ་(0.25),YES - dictionary gives སིན་གྷ་པོར྄།,,DDC countries.tsv; corpus kept (medium)
 america,ཨ་མི་རི་ཀ་,medium,0.57,155,ཨ་མི་རི་ཀ་(0.57) | འགྱོ་(0.27) | ཁོ་(0.28),YES,,
-england,ཨིང་ལེནཌ་,medium,0.67,124,ཨིང་ལེནཌ་(0.67) | དང་(0.17) | གི་(0.35),YES,,
-australia,ཨཱསི་ཊེ་ལི་ཡ་,low,0.23,264,ཨཱསི་ཊེ་ལི་ཡ་(0.23) | འགྱོ་(0.20) | ལུ་(0.76),YES,,
-canada,ཌ་,medium,0.51,55,ཌ་(0.51) | ཀེ་ན་(0.55) | འགྱོ་(0.20),YES,,
-germany,ཇར་,medium,0.77,56,ཇར་(0.77) | ཇཱར་(0.18) | མ་(0.95),YES,,
-france,ཕརཱནསི་,low,0.21,123,ཕརཱནསི་(0.21) | ཕརནསི་(0.24) | འགྱོ་(0.16),YES,,
+england,ཨིང་ལེནཌ་,medium,0.67,124,ཨིང་ལེནཌ་(0.67) | དང་(0.17) | གི་(0.35),YES - dictionary gives དབྱིན་ཡུལ།,,DDC p.634 noun; corpus kept (medium)
+australia,ཨཱས་ཊེ་ལི་ཡ་,dict,0.23,264,ཨཱསི་ཊེ་ལི་ཡ་(0.23) | འགྱོ་(0.20) | ལུ་(0.76),check - corpus proposed something else,,DDC countries.tsv; replaced corpus guess ཨཱསི་ཊེ་ལི་ཡ་
+canada,ཌ་,medium,0.51,55,ཌ་(0.51) | ཀེ་ན་(0.55) | འགྱོ་(0.20),YES - dictionary gives ཀེ་ན་ཌ།,,DDC countries.tsv; corpus kept (medium)
+germany,ཇར་,medium,0.77,56,ཇར་(0.77) | ཇཱར་(0.18) | མ་(0.95),YES - dictionary gives ཇཱར་མ་ནི།,,DDC countries.tsv; corpus kept (medium)
+france,ཕྲནས་,dict,0.21,123,ཕརཱནསི་(0.21) | ཕརནསི་(0.24) | འགྱོ་(0.16),check - corpus proposed something else,,DDC countries.tsv; replaced corpus guess ཕརཱནསི་
 delhi,ནིའུ་ཌེ་ལི་,low,0.31,13,ནིའུ་ཌེ་ལི་(0.31) | དྷི་ལི་(0.23) | ཌེ་ལི་(0.23),YES,,
-kolkata,,MISSING,,0,,YES - not in corpus,,
-kathmandu,,MISSING,,0,,YES - not in corpus,,
-country,རྒྱལ་ཁབ་,high,0.87,391,རྒྱལ་ཁབ་(0.87) | ནང་(0.37) | ཀྱི་(0.22),,,
-city,ཁྲོམ་སྡེ་,low,0.32,438,ཁྲོམ་སྡེ་(0.32) | ཁྲོམ་(0.36) | གྱི་(0.16),YES,,
-town,ཁྲོམ་,high,0.86,456,ཁྲོམ་(0.86) | ཁར་(0.20) | གྱི་(0.15),,,
-village,གཡུས་ཚན་,low,0.41,169,གཡུས་ཚན་(0.41) | གཡུས་(0.44) | ནང་(0.31),YES,,
-district,རྫོང་ཁག་,medium,0.70,33,རྫོང་ཁག་(0.70) | གཅིག་(0.15) | ཨིན(0.45),YES,,
-capital,རྒྱལ་ས་,low,0.15,151,རྒྱལ་ས་(0.15) | རྒྱལ་ས་ལྟེ་བ་(0.54) | གྱི་(0.24),YES,,
+kolkata,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
+kathmandu,ཀཱད་མཱན་ཌུ་,dict,,0,,check - corpus proposed something else,,DDC countries.tsv
+country,རྒྱལ་ཁབ་,high,0.87,391,རྒྱལ་ཁབ་(0.87) | ནང་(0.37) | ཀྱི་(0.22),,ལུང་པ་ | གཡུས་ | གྲོང་གསེབ་,DDC p.174 noun; agrees with corpus
+city,ཁྲོམ་སྡེ་,dict,0.32,438,ཁྲོམ་སྡེ་(0.32) | ཁྲོམ་(0.36) | གྱི་(0.16),,གྲོང་ཁྱེར་ | གྲོང་སྡེ་,DDC p.90 noun; agrees with corpus
+town,ཁྲོམ་,high,0.86,456,ཁྲོམ་(0.86) | ཁར་(0.20) | གྱི་(0.15),,,DDC p.90 noun; agrees with corpus
+village,གཡུས་ཚན་,dict,0.41,169,གཡུས་ཚན་(0.41) | གཡུས་(0.44) | ནང་(0.31),,གཡུས་ | ཡུལ་ | གྲོང་ཡུལ་,DDC p.896 noun; agrees with corpus
+district,རྫོང་ཁག་,medium,0.70,33,རྫོང་ཁག་(0.70) | གཅིག་(0.15) | ཨིན(0.45),YES,ཆ་འདུས་ | ཆ་འོག་,DDC p.800 noun; agrees with corpus
+capital,རྒྱལ་ས་,dict,0.15,151,རྒྱལ་ས་(0.15) | རྒྱལ་ས་ལྟེ་བ་(0.54) | གྱི་(0.24),,རྒྱལ་ས་ལྟེ་བ་ | ཉེན་ཆེན་ | མ་རྩ་,DDC p.179 noun; agrees with corpus

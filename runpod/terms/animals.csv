@@ -1,78 +1,78 @@
 en,dz_preferred,confidence,coverage,carriers,dz_candidates,review,dz_variants,notes
-cow,བཞོ་,low,0.22,64,བཞོ་(0.22) | ནོར་(0.23) | ཨོམ་(0.41),YES,,
-bull,,MISSING,,3,,YES - not in corpus,,
-ox,,MISSING,,3,,YES - not in corpus,,
-buffalo,,MISSING,,3,,YES - not in corpus,,
-yak,,MISSING,,1,,YES - not in corpus,,
-dog,རོ་ཁྱི་,high,0.94,1165,རོ་ཁྱི་(0.94) | གིས་(0.40) | གི་(0.15),,,
-puppy,ཁྱི་ཕྲུག་,low,0.27,15,ཁྱི་ཕྲུག་(0.27) | རོ་ཁྱིའི་(0.33) | ཕྱུ་གུ་(0.53),YES,,
-cat,བྱི་ལི་,high,0.94,527,བྱི་ལི་(0.94) | གི་(0.16) | ལུ་(0.29),,,
-kitten,བྱི་ཕྲུག་,low,0.38,13,བྱི་ཕྲུག་(0.38) | པད་སྡེར་(0.15) | ཕྱུ་གུ་(0.38),YES,,
-horse,རྟ་,high,0.90,215,རྟ་(0.90) | ཨིན(0.20) | ཅིག་(0.16),,,
-pony,རྟ་,medium,0.67,9,རྟ་(0.67) | རིགས་(0.22) | ཉོ་(0.22),YES,,
-mule,དྲེལ་,high,1.00,7,དྲེལ་(1.00) | རྨོ་འཁོར་(0.29) | ནག་(0.29),,,
-donkey,བོང་ཀུ་,high,1.00,7,བོང་ཀུ་(1.00) | རྟ་(0.43) | སོ་སོ་(0.29),,,
-goat,དར་ཚིལ་,low,0.19,21,དར་ཚིལ་(0.19) | བཟོ་བཟོཝ་(0.19) | ཨོམ་(0.29),YES,,
-sheep,ལུག་,high,0.81,36,ལུག་(0.81) | ནང་(0.22) | ཚུ་(0.17),,,
-lamb,དཀརཔོ་ཁཝ་,low,0.15,13,དཀརཔོ་ཁཝ་(0.15) | ལུག་ཤ་(0.31) | ལུག་(0.54),YES,,
-pig,ཕགཔ་,high,0.83,29,ཕགཔ་(0.83) | ཟ་(0.17) | ཚུ་(0.48),,,
-chicken,བྱ་ཤ་,low,0.42,76,བྱ་ཤ་(0.42) | བྱམོ་(0.20) | མ་(0.17),YES,,
-hen,བྱམ་,low,0.18,11,བྱམ་(0.18) | བྱམོ་(0.82) | འབུད་(0.36),YES,,
-rooster,,MISSING,,1,,YES - not in corpus,,
-duck,འདམ་བྱ་,medium,0.71,14,འདམ་བྱ་(0.71) | ཚུ་(0.21) | ཁོ་(0.29),YES,,
-goose,ངང་པ་,low,0.44,9,ངང་པ་(0.44) | འབུད་(0.22) | གསེར་(0.22),YES,,
-turkey,ཊར་ཀི་,low,0.45,20,ཊར་ཀི་(0.45) | ཟ་(0.15) | གི་(0.50),YES,,
-rabbit,བོང་,low,0.17,47,བོང་(0.17) | རི་བོང་(0.74) | རི་(0.19),YES,,
-tiger,སྟག་,high,0.83,29,སྟག་(0.83) | སེམས་ཅན་(0.21) | ལས་(0.31),,,
-leopard,,MISSING,,3,,YES - not in corpus,,
-snow leopard,,MISSING,,1,,YES - not in corpus,,
-bear,དོམ་,low,0.26,113,དོམ་(0.26) | བཟོད་(0.28) | ཚུགས(0.18),YES,,
-monkey,སྤྱ་,high,0.98,47,སྤྱ་(0.98) | ཤིང་(0.26) | མཐོང་(0.17),,,
-langur,,MISSING,,0,,YES - not in corpus,,
-elephant,གླངམོ་ཆེ་,medium,0.69,49,གླངམོ་ཆེ་(0.69) | གླངམ་ཆེ་(0.20) | སེམས་ཅན་(0.18),YES,,
-rhinoceros,,MISSING,,0,,YES - not in corpus,,
-deer,ཀ་ཤ་,medium,0.67,21,ཀ་ཤ་(0.67) | ཡི(0.33) | ཚུ་(0.19),YES,,
-musk deer,,MISSING,,1,,YES - not in corpus,,
-takin,,MISSING,,0,,YES - not in corpus,,
-blue sheep,,MISSING,,0,,YES - not in corpus,,
-wolf,འཕརཝ་,medium,0.65,17,འཕརཝ་(0.65) | པས་(0.18) | མཐོང་(0.24),YES,,
-fox,འ་དོམ་,low,0.43,30,འ་དོམ་(0.43) | འམོ་(0.30) | ནུག(0.40),YES,,
-jackal,,MISSING,,0,,YES - not in corpus,,
-otter,,MISSING,,2,,YES - not in corpus,,
-squirrel,ཏོར་ཏོ་,medium,0.57,23,ཏོར་ཏོ་(0.57) | གེ་ཏ་(0.26) | ཞལ་ལག་(0.22),YES,,
-mouse,བྱི་ཙི་,high,0.89,36,བྱི་ཙི་(0.89) | བྱི་ལི་(0.33) | ནུག(0.28),,,
-rat,བྱི་ཙི་,high,0.89,27,བྱི་ཙི་(0.89) | འདུག(0.19) | ནུག(0.26),,,
-bat,ཕོཝ་མ་,low,0.20,35,ཕོཝ་མ་(0.20) | ཕ་ཝང་(0.26) | གཡུག་ཤིང་(0.23),YES,,
-snake,སྦུལ་,high,0.90,59,སྦུལ་(0.90) | འདྲོགཔ་(0.20) | འདྲོག་(0.15),,,
-lizard,ཙི་ཙི་,medium,0.50,8,ཙི་ཙི་(0.50) | དམརམོ་(0.50) | མཇུག་མ་(0.38),YES,,
-frog,སྦལཔ་,medium,0.72,39,སྦལཔ་(0.72) | ཚུགས(0.15) | ཨིན(0.33),YES,,
-turtle,རུས་སྦལ་,medium,0.57,21,རུས་སྦལ་(0.57) | སྦལ་(0.24) | རྒྱ་མཚོའི་(0.24),YES,,
-crocodile,ཆུ་སྲིན་,high,1.00,8,ཆུ་སྲིན་(1.00) | རིགས་(0.38) | རྐངམ་(0.25),,,
-fish,ཉ་,high,0.89,276,ཉ་(0.89) | ནང་(0.18) | ཨིན(0.20),,,
-trout,གཙང་ཉ་,low,0.27,11,གཙང་ཉ་(0.27) | གཙང་ཆུའི་(0.64) | ཉ་(0.73),YES,,
-bird,བྱ་,medium,0.73,245,བྱ་(0.73) | ཚུ་(0.31) | ཨིན(0.24),YES,,
-crow,ཨོ་ལ་,high,1.00,18,ཨོ་ལ་(1.00) | འཕུར་(0.28) | གནགཔོ་(0.22),,,
-eagle,ཁྱ་རྒོད་,medium,0.77,13,ཁྱ་རྒོད་(0.77) | བྱ་རྒོད་(0.15) | འཕུར་(0.15),YES,,
-vulture,,MISSING,,0,,YES - not in corpus,,
-owl,འུག་པ་,medium,0.67,15,འུག་པ་(0.67) | སྦོམ་(0.27) | མཐོང་(0.20),YES,,
-sparrow,,MISSING,,0,,YES - not in corpus,,
-pigeon,ཕུ་ཀྲེ་,medium,0.67,12,ཕུ་ཀྲེ་(0.67) | གསོཝ་(0.17) | ཚོད་བརྟག་(0.25),YES,,
-dove,ཐི་ལི་རྒྱལམོ་,low,0.33,12,ཐི་ལི་རྒྱལམོ་(0.33) | མཆོངས་(0.17) | ཞི་བདེ་(0.17),YES,,
-crane,དོ་འདྲེན་,medium,0.50,8,དོ་འདྲེན་(0.50) | ལྕི་དྲགས་(0.25) | བཟོ་སྐྲུན་(0.25),YES,,
-black-necked crane,,MISSING,,0,,YES - not in corpus,,
-raven,,MISSING,,2,,YES - not in corpus,,
-peacock,རྨ་བྱ་,high,1.00,4,རྨ་བྱ་(1.00) | སྒྲོ་ཁྲ་(0.50) | མཇུག་མའི་(0.25),,,
-parrot,བག་བྲོ་,low,0.20,10,བག་བྲོ་(0.20) | བྱ་བག་བྲོ་(0.70) | འཕུར་(0.20),YES,,
-cuckoo,,MISSING,,1,,YES - not in corpus,,
-butterfly,ཕྱེམ་ལ་,medium,0.79,14,ཕྱེམ་ལ་(0.79) | མཐོང་(0.21) | ཅིག་(0.43),YES,,
-bee,གསེར་སྦྱངམ་,low,0.36,45,གསེར་སྦྱངམ་(0.36) | གསེར་སྦྱང་(0.29) | མདུང་(0.24),YES,,
-ant,གྱོག་མོ་,medium,0.75,24,གྱོག་མོ་(0.75) | ཐབ་ཚང་(0.17) | མེདཔ་(0.17),YES,,
-spider,བབ་ཤནམ་,medium,0.79,34,བབ་ཤནམ་(0.79) | འདྲོག་(0.18) | ཚུ་(0.29),YES,,
-mosquito,གཟན་དོམ་,high,1.00,17,གཟན་དོམ་(1.00) | ལག་ངར་(0.24) | བཏབ་(0.71),,,
-fly,འཕུར་,medium,0.56,104,འཕུར་(0.56) | བྱ་(0.20) | ཚུ་(0.16),YES,,
-worm,འབུཔ་,low,0.33,15,འབུཔ་(0.33) | ནང་(0.33) | ཨིན(0.40),YES,,
-grasshopper,,MISSING,,0,,YES - not in corpus,,
-cricket,གཡུག་རིལ་,low,0.43,14,གཡུག་རིལ་(0.43) | ཨ་ཞང་(0.29) | རྩེདམོ་(0.36),YES,,
-beetle,འཇམ་པ,low,0.17,6,འཇམ་པ(0.17) | ཉེ་འཆར་(0.17) | ཀ་རབ་(0.17),YES,,
-snail,གདུང་དཀར་,low,0.17,6,གདུང་དཀར་(0.17) | དུང་དཀར་(0.83) | འབུཔ་(0.83),YES,,
-leech,,MISSING,,0,,YES - not in corpus,,
+cow,སེམས་ཅན་མོ་,dict,0.22,64,བཞོ་(0.22) | ནོར་(0.23) | ཨོམ་(0.41),check - corpus proposed something else,གསོལ་བམ་ | འདྲོག་ | འདྲོག་བཅུག་པ་,DDC p.1016 noun; replaced corpus guess བཞོ་
+bull,གླང་,dict,,3,,check - corpus proposed something else,བགོ་བཤའི་ཚོང་པ་,DDC p.129 noun
+ox,གླང་,dict,,3,,check - corpus proposed something else,,DDC p.129 noun
+buffalo,མ་ཧེ་,dict,,3,,check - corpus proposed something else,,DDC p.670 noun
+yak,གཡག་,dict,,1,,check - corpus proposed something else,ལ་ནོར་ | བཤད་ཐོ་གཏང་བ་ | བཤད་ཐོ་བརྡལ་བ་,DDC p.892 noun
+dog,རོ་ཁྱི་,high,0.94,1165,རོ་ཁྱི་(0.94) | གིས་(0.40) | གི་(0.15),,ཁྱི་ | འཕརཝ་ཕོ་ | རྟིང་བདའ་,DDC p.930 noun; agrees with corpus
+puppy,ཁྱི་ཕྲུག་,dict,0.27,15,ཁྱི་ཕྲུག་(0.27) | རོ་ཁྱིའི་(0.33) | ཕྱུ་གུ་(0.53),,རོ་ཁྱིའི་ཕྱུ་གུ་,DDC p.79 noun; agrees with corpus
+cat,བྱི་ལི་,high,0.94,527,བྱི་ལི་(0.94) | གི་(0.16) | ལུ་(0.29),,,DDC p.613 noun; agrees with corpus
+kitten,བྱི་ཕྲུག་,dict,0.38,13,བྱི་ཕྲུག་(0.38) | པད་སྡེར་(0.15) | ཕྱུ་གུ་(0.38),,བྱི་ལིའི་ཕྱུ་གུ་,DDC p.613 noun; agrees with corpus
+horse,རྟ་,high,0.90,215,རྟ་(0.90) | ཨིན(0.20) | ཅིག་(0.16),,,DDC p.327 noun; agrees with corpus
+pony,རྟ་,medium,0.67,9,རྟ་(0.67) | རིགས་(0.22) | ཉོ་(0.22),YES,,DDC p.327 noun; agrees with corpus
+mule,དྲེལ་,high,1.00,7,དྲེལ་(1.00) | རྨོ་འཁོར་(0.29) | ནག་(0.29),,ནང་ལྷམ་ | སྨྱོ་རྫས་གླ་སྐྱེལ་པ་,DDC p.423 noun; agrees with corpus
+donkey,བོང་ཀུ་,high,1.00,7,བོང་ཀུ་(1.00) | རྟ་(0.43) | སོ་སོ་(0.29),,,DDC p.607 noun; agrees with corpus
+goat,ར་པོད་,dict,0.19,21,དར་ཚིལ་(0.19) | བཟོ་བཟོཝ་(0.19) | ཨོམ་(0.29),check - corpus proposed something else,ར་,DDC p.901 noun [གླེ་གླེ།]; replaced corpus guess དར་ཚིལ་
+sheep,ལུག་,high,0.81,36,ལུག་(0.81) | ནང་(0.22) | ཚུ་(0.17),,,DDC p.958 noun; agrees with corpus
+lamb,ལུག་,dict,0.15,13,དཀརཔོ་ཁཝ་(0.15) | ལུག་ཤ་(0.31) | ལུག་(0.54),,ལུག་ཤ་ | ལུག་ཕྲུག་ | ལུག་གི་ཕྱུ་གུ་,DDC p.958 noun; replaced corpus guess དཀརཔོ་ཁཝ་
+pig,ཕགཔ་,high,0.83,29,ཕགཔ་(0.83) | ཟ་(0.17) | ཚུ་(0.48),,ཕག་ | ཕག་པ་ | ལྟོ་ལེ་ཅན་,DDC p.559 noun; agrees with corpus
+chicken,བྱམོ་,dict,0.42,76,བྱ་ཤ་(0.42) | བྱམོ་(0.20) | མ་(0.17),,བྱ་ཤ་ | སྙིང་སྟོབས་མེད་མི་,DDC p.612 noun; replaced corpus guess བྱ་ཤ་
+hen,བྱམོ་,dict,0.18,11,བྱམ་(0.18) | བྱམོ་(0.82) | འབུད་(0.36),,བྱི་ཅུང་མོ་,DDC p.612 noun; replaced corpus guess བྱམ་
+rooster,བྱ་ཕོ་,dict,,1,,check - corpus proposed something else,བྱ་པོད་,DDC p.608 noun
+duck,འདམ་བྱ་,medium,0.71,14,འདམ་བྱ་(0.71) | ཚུ་(0.21) | ཁོ་(0.29),YES,འདམ་བྱ་མོ་ | འདམ་བྱའི་ཤ་ | མར་གུག་,DDC p.446 noun; agrees with corpus
+goose,ངང་པ་,dict,0.44,9,ངང་པ་(0.44) | འབུད་(0.22) | གསེར་(0.22),,ངང་ཤ་ | ངངམ་,DDC p.202 noun; agrees with corpus
+turkey,ཊཱར་ཀི་,dict,0.45,20,ཊར་ཀི་(0.45) | ཟ་(0.15) | གི་(0.50),check - corpus proposed something else,,DDC countries.tsv; replaced corpus guess ཊར་ཀི་
+rabbit,རི་བོང་,dict,0.17,47,བོང་(0.17) | རི་བོང་(0.74) | རི་(0.19),,རི་བོང་ཤ་ | ཡོས་,DDC p.915 noun; replaced corpus guess བོང་
+tiger,སྟག་,high,0.83,29,སྟག་(0.83) | སེམས་ཅན་(0.21) | ལས་(0.31),,,DDC p.338 noun; agrees with corpus
+leopard,གཟིག་,dict,,3,,check - corpus proposed something else,,DDC p.846 noun
+snow leopard,གངས་གཟིག་,dict,,1,,check - corpus proposed something else,,DDC p.105 noun
+bear,དོམ་,dict,0.26,113,དོམ་(0.26) | བཟོད་(0.28) | ཚུགས(0.18),,བཟོད་ | ཐེག་ | འཆང་བ་,DDC p.409 noun; agrees with corpus
+monkey,སྤྱ་,high,0.98,47,སྤྱ་(0.98) | ཤིང་(0.26) | མཐོང་(0.17),,སྤྲེའུ་ | སྤྲེལ་ | ཙང་མ་ཆགས་མི་,DDC p.542 noun; agrees with corpus
+langur,སྤྱ་དཀར་,dict,,0,,check - corpus proposed something else,,DDC p.542 noun
+elephant,གླངམོ་ཆེ་,medium,0.69,49,གླངམོ་ཆེ་(0.69) | གླངམ་ཆེ་(0.20) | སེམས་ཅན་(0.18),YES,གླང་པོ་ཆེ་,DDC p.129 noun; agrees with corpus
+rhinoceros,བསེ་རུ་,dict,,0,,check - corpus proposed something else,ནོར་བུ་བསི་ལི་,DDC p.1058 noun
+deer,ཀ་ཤ་,medium,0.67,21,ཀ་ཤ་(0.67) | ཡི(0.33) | ཚུ་(0.19),YES - dictionary gives ཤ་བ།,ཤཝ་,DDC p.976 noun; corpus kept (medium)
+musk deer,གླ་ཅུམ་,dict,,1,,check - corpus proposed something else,གླ་བ་,DDC p.128 noun
+takin,འབྲོང་གྱིམ་ཙེ་,dict,,0,,check - corpus proposed something else,,DDC p.650 noun
+blue sheep,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
+wolf,འཕརཝ་,medium,0.65,17,འཕརཝ་(0.65) | པས་(0.18) | མཐོང་(0.24),YES - dictionary gives སྤྱང་ཀི།,སྤྱང་ཁུ་ | ལྕེ་སྤྱང་ | ལྟོ་ལེ་ཤིག་ཤི་,DDC p.542 noun; corpus kept (medium)
+fox,འམོ་,dict,0.43,30,འ་དོམ་(0.43) | འམོ་(0.30) | ནུག(0.40),,འ་དོམ་ | ཝ་སྐྱེས་ | མགུ་འབྱིད་ཅན་,DDC p.859 noun; replaced corpus guess འ་དོམ་
+jackal,ཤིའུ་ལི་,dict,,0,,check - corpus proposed something else,རྒྱ་གར་འམོ་,DDC p.983 noun
+otter,སྲམ་,dict,,2,,check - corpus proposed something else,,DDC p.1028 noun
+squirrel,ཏོར་ཏོ་,medium,0.57,23,ཏོར་ཏོ་(0.57) | གེ་ཏ་(0.26) | ཞལ་ལག་(0.22),YES - dictionary gives ཏོར་ཏོ་ལ།,ཤིང་གེ་ཏ་,DDC p.320 noun; corpus kept (medium)
+mouse,བྱི་ཙི་,high,0.89,36,བྱི་ཙི་(0.89) | བྱི་ལི་(0.33) | ནུག(0.28),,བྱིཝ་ | གློག་བྱི་ | ལག་རྟ་,DDC p.613 noun; agrees with corpus
+rat,བྱི་ཙི་,high,0.89,27,བྱི་ཙི་(0.89) | འདུག(0.19) | ནུག(0.26),,བྱི་བ་ | བྱིཝ་,DDC p.613 noun; agrees with corpus
+bat,ཕ་ཝང་,dict,0.20,35,ཕོཝ་མ་(0.20) | ཕ་ཝང་(0.26) | གཡུག་ཤིང་(0.23),,གཡུག་ཤིང་ | ཕོཝ་མ་ཀེ་,DDC p.557 noun; replaced corpus guess ཕོཝ་མ་
+snake,སྦུལ་,high,0.90,59,སྦུལ་(0.90) | འདྲོགཔ་(0.20) | འདྲོག་(0.15),,སྦྲུལ་ | གཡོ་སྟེ་འགྱོ་བ་,DDC p.652 noun; agrees with corpus
+lizard,ཙི་ཙི་,medium,0.50,8,ཙི་ཙི་(0.50) | དམརམོ་(0.50) | མཇུག་མ་(0.38),YES - dictionary gives ཙི་ཙི་དམརམོ།,,DDC p.719 noun; corpus kept (medium)
+frog,སྦལཔ་,medium,0.72,39,སྦལཔ་(0.72) | ཚུགས(0.15) | ཨིན(0.33),YES,,DDC p.651 noun; agrees with corpus
+turtle,རུས་སྦལ་,medium,0.57,21,རུས་སྦལ་(0.57) | སྦལ་(0.24) | རྒྱ་མཚོའི་(0.24),YES,,DDC p.926 noun; agrees with corpus
+crocodile,ཆུ་སྲིན་,high,1.00,8,ཆུ་སྲིན་(1.00) | རིགས་(0.38) | རྐངམ་(0.25),,,DDC p.254 noun; agrees with corpus
+fish,ཉ་,high,0.89,276,ཉ་(0.89) | ནང་(0.18) | ཨིན(0.20),,ཉ་ཤ་ | འཚོལ་བ་,DDC p.281 noun [ཆུར་གནས་སྲོག་ཆགས་ཅིག]; agrees with corpus
+trout,རྒྱ་ཉ་,dict,0.27,11,གཙང་ཉ་(0.27) | གཙང་ཆུའི་(0.64) | ཉ་(0.73),check - corpus proposed something else,,DDC p.168 noun; replaced corpus guess གཙང་ཉ་
+bird,བྱ་,medium,0.73,245,བྱ་(0.73) | ཚུ་(0.31) | ཨིན(0.24),YES,འདབ་ཆགས་ | བྱི་ཅུང་,DDC p.607 noun; agrees with corpus
+crow,ཨོ་ལ་,high,1.00,18,ཨོ་ལ་(1.00) | འཕུར་(0.28) | གནགཔོ་(0.22),,བྱ་འབོ་བ་ | བྱཔོ་འབོ་བ་ | ཨོ་སྐད་རྐྱབ་པ་,DDC p.1093 noun; agrees with corpus
+eagle,ཁྱ་རྒོད་,medium,0.77,13,ཁྱ་རྒོད་(0.77) | བྱ་རྒོད་(0.15) | འཕུར་(0.15),YES,,DDC p.75 noun; agrees with corpus
+vulture,རྒོད་,dict,,0,,check - corpus proposed something else,བྱ་རྒོད་ | གཞན་སྡུག་རང་ཁེ་,DDC p.167 noun
+owl,འུག་པ་,medium,0.67,15,འུག་པ་(0.67) | སྦོམ་(0.27) | མཐོང་(0.20),YES,,DDC p.859 noun; agrees with corpus
+sparrow,ནལ་གཟནམ་,dict,,0,,check - corpus proposed something else,,DDC p.489 noun
+pigeon,ཕུ་ཀྲེ་,medium,0.67,12,ཕུ་ཀྲེ་(0.67) | གསོཝ་(0.17) | ཚོད་བརྟག་(0.25),YES,ཕུག་རོན་,DDC p.565 noun; agrees with corpus
+dove,ཐི་ལི་རྒྱལམོ་,dict,0.33,12,ཐི་ལི་རྒྱལམོ་(0.33) | མཆོངས་(0.17) | ཞི་བདེ་(0.17),,ཐི་ཐི་རྒྱལམོ་ | ཞི་མོས་ཅན་,DDC p.358 noun; agrees with corpus
+crane,དོ་འདྲེན་,medium,0.50,8,དོ་འདྲེན་(0.50) | ལྕི་དྲགས་(0.25) | བཟོ་སྐྲུན་(0.25),YES,ཁྲུང་ཁྲུང་ | བྱ་ཁྲུང་ཁྲུང་ | ཨོལ་ལྐོག་སྤྲིངས་ཏེ་བལྟ་བ་,DDC p.402 noun; agrees with corpus
+black-necked crane,ཁྲུང་ཁྲུང་སྐེ་ནག་,dict,,0,,check - corpus proposed something else,,DDC p.89 noun
+raven,བྱ་རོག་,dict,,2,,check - corpus proposed something else,ཨོ་རོག་,DDC p.609 noun
+peacock,རྨ་བྱ་,high,1.00,4,རྨ་བྱ་(1.00) | སྒྲོ་ཁྲ་(0.50) | མཇུག་མའི་(0.25),,རྨ་བྱ་ཕོ་,DDC p.712 noun; agrees with corpus
+parrot,བྱ་བག་བྲོ་,dict,0.20,10,བག་བྲོ་(0.20) | བྱ་བག་བྲོ་(0.70) | འཕུར་(0.20),,ནེ་ཙོ་,DDC p.609 noun; replaced corpus guess བག་བྲོ་
+cuckoo,ཁུ་བྱུག་,dict,,1,,check - corpus proposed something else,ཁུ་བྱུག་སྔོནམོ་ | འཆོལ་རྩ་ཅན་ | བྱ་ཨ་ཁུ་,DDC p.69 noun
+butterfly,ཕྱེམ་ལ་,medium,0.79,14,ཕྱེམ་ལ་(0.79) | མཐོང་(0.21) | ཅིག་(0.43),YES,ཕྱེམ་རྩལ་,DDC p.583 noun; agrees with corpus
+bee,གསེར་སྦྱང་,dict,0.36,45,གསེར་སྦྱངམ་(0.36) | གསེར་སྦྱང་(0.29) | མདུང་(0.24),,སེར་སྦྱངམ་,DDC p.1049 noun; replaced corpus guess གསེར་སྦྱངམ་
+ant,གྱོག་མོ་,medium,0.75,24,གྱོག་མོ་(0.75) | ཐབ་ཚང་(0.17) | མེདཔ་(0.17),YES,,DDC p.118 noun; agrees with corpus
+spider,བབ་ཤནམ་,medium,0.79,34,བབ་ཤནམ་(0.79) | འདྲོག་(0.18) | ཚུ་(0.29),YES,,DDC p.600 noun; agrees with corpus
+mosquito,གཟན་དོམ་,high,1.00,17,གཟན་དོམ་(1.00) | ལག་ངར་(0.24) | བཏབ་(0.71),,,DDC p.845 noun; agrees with corpus
+fly,འཕུར་,medium,0.56,104,འཕུར་(0.56) | བྱ་(0.20) | ཚུ་(0.16),YES,སྦྱངམ་ | དོར་རྟ་ | སྦྲང་མ་,DDC p.588 verb [ལྡིང་།]; agrees with corpus
+worm,འབུཔ་,dict,0.33,15,འབུཔ་(0.33) | ནང་(0.33) | ཨིན(0.40),,འབུཔ་ཕྲན་ | གཡོ་གཟུར་ | ལྕོང་འབུཔ་,DDC p.640 noun; agrees with corpus
+grasshopper,ཅིའུ་དབ་,dict,,0,,check - corpus proposed something else,,DDC p.228 noun
+cricket,གཡུག་རིལ་,dict,0.43,14,གཡུག་རིལ་(0.43) | ཨ་ཞང་(0.29) | རྩེདམོ་(0.36),,ཏེམ་བྱི་རུ་ | གཡུག་རིལ་རྩེདམོ་,DDC p.895 noun; agrees with corpus
+beetle,ཨ་ཝ་གླང་,dict,0.17,6,འཇམ་པ(0.17) | ཉེ་འཆར་(0.17) | ཀ་རབ་(0.17),check - corpus proposed something else,,DDC p.1083 noun; replaced corpus guess འཇམ་པ
+snail,དུང་དཀར་འབུཔ་,dict,0.17,6,གདུང་དཀར་(0.17) | དུང་དཀར་(0.83) | འབུཔ་(0.83),check - corpus proposed something else,,DDC p.390 noun; replaced corpus guess གདུང་དཀར་
+leech,པདཔ་,dict,,0,,check - corpus proposed something else,གཞན་ལུ་བརྟེན་པ་,DDC p.524 noun

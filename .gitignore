@@ -26,3 +26,11 @@ logs/
 # evaluation results are worth keeping; checkpoints are not
 !*_flores.json
 !*_own.json
+
+# The dictionary PDF and everything extracted from it. The tables are a
+# derivative of a copyrighted work (© Dzongkha Development Commission, 2013):
+# usable as local training data, not ours to redistribute. Rebuild them with
+# runpod/extract_dictionary.py from your own copy of the book.
+runpod/*.pdf
+runpod/dict/*
+!runpod/dict/README.md

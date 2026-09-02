@@ -419,11 +419,130 @@ date and the amount survive.
 
 ---
 
-## Step 10 — Before you terminate the pod
+## Step 10 — v3: train on the dictionary
+
+v2 learned from 232k human sentence pairs plus back-translation. What it never
+saw is a dictionary: no proper nouns, no honorific register, one spelling per
+verb, and a vocabulary bounded by whatever the corpus happened to contain. The
+DDC Dzongkha–English Pocket Dictionary supplies all four, and v3 continues from
+v2 rather than starting over — the sentence data has already done its work, and
+this run is about vocabulary, not fluency.
+
+Do the extraction once, on any machine (it needs no GPU):
+
+```bash
+python extract_dictionary.py --pdf PP-XII-Dzongkha-English-Dictionary.pdf --out dict/
+python fill_terms_from_dict.py            # fills terms/*.csv from the book
+```
+
+Then on the pod, build the two training sets the run adds:
+
+```bash
+# dictionary lookups: 57k word pairs, capped so they stay ~10% of the mix
+python dict_pairs.py --dict dict --data /workspace/data/dz_en_bidi \
+    --out /workspace/data/dz_dict
+
+# the same terms inside real sentences -- this is what teaches usage
+python augment_terms.py build --csv ../dataset.csv --terms-dir terms \
+    --out /workspace/data/dz_terms
+```
+
+`dict_pairs.py` reads the prepared dataset only to check that nothing it emits
+appears in validation or test. If it prints a leakage warning, the path is
+wrong — fix it rather than training on an unchecked set.
+
+That gives the v3 mix, measured:
+
+| Source | Rows |
+|---|---|
+| `dz_en_bidi` — the human corpus, both directions | 439,120 |
+| `dz_en_bt` — back-translated Kuensel (replay from v2) | 69,540 |
+| `dz_dict` — dictionary lookups, tense stems, appendix tables | 57,609 |
+| `dz_terms` — dictionary terms inside real sentences | 20,942 |
+| **Total** | **587,211** — dictionary-derived 13.4% |
+
+Smoke-test the wiring before committing the GPU hour:
+
+```bash
+python train.py --model kinleyrabgay/lotsawa-600m-dz-en-v2 \
+  --data /workspace/data/dz_en_bidi \
+  --extra-data /workspace/data/dz_en_bt,/workspace/data/dz_dict,/workspace/data/dz_terms \
+  --out /tmp/smoke --smoke
+```
+
+```bash
+tmux new -s train3
+
+python train.py \
+  --model kinleyrabgay/lotsawa-600m-dz-en-v2 \
+  --data /workspace/data/dz_en_bidi \
+  --extra-data /workspace/data/dz_en_bt,/workspace/data/dz_dict,/workspace/data/dz_terms \
+  --out /workspace/ckpt-v3 \
+  --hub-id kinleyrabgay/lotsawa-600m-dz-en-v3 \
+  --batch 16 --grad-accum 2 --epochs 1 --lr 5e-6 --max-length 128 \
+  --eval-steps 2000 --eval-flores
+```
+
+Three things about that command differ from Step 8 and all three matter.
+
+`--model` is v2, not the NLLB base: this is a continued fine-tune, so the run is
+one epoch and about an hour, not eight.
+
+`--lr 5e-6` is half what v2 used. A continued run at v2's learning rate will
+move the weights far enough to lose what v2 knows — the vocabulary arrives and
+the fluency leaves. If you only change one number, change this one.
+
+The back-translated data is still in `--extra-data` even though v2 already
+trained on it. It is there as replay: the dictionary rows are 13% of the mix,
+and without the sentence data alongside them a model fine-tuned on word pairs
+learns to answer a sentence with a word.
+
+Score it against v2 on the same benchmark before believing anything:
+
+```bash
+python evaluate.py --model /workspace/ckpt-v3 --flores --out v3_flores.json
+python evaluate.py --model kinleyrabgay/lotsawa-600m-dz-en-v2 --flores --out v2_flores.json
+```
+
+v2 set the bar at **chrF++ 59.99 dz→en / 51.34 en→dz** on the held-out test
+split. Expect the gain to show up on vocabulary rather than on FLORES, whose
+sentences are ordinary prose: the dictionary teaches words FLORES does not ask
+about. Try the words it should have fixed:
+
+```bash
+python translate.py --model /workspace/ckpt-v3 --direction en2dz "buffalo"
+python translate.py --model /workspace/ckpt-v3 --direction en2dz "The takin is the national animal."
+python translate.py --model /workspace/ckpt-v3 --direction dz2en "བཞུགས།"     # honorific 'sit'
+python translate.py --model /workspace/ckpt-v3 --direction en2dz "Ottawa is the capital of Canada."
+```
+
+If chrF++ drops on either direction, the mix is too heavy, not the idea. Rebuild
+with `--max-lookup-rows 25000` and rerun; that halves the dictionary share
+without touching the carrier sentences, which are the part least likely to hurt.
+
+`--hub-id` creates `kinleyrabgay/lotsawa-600m-dz-en-v3` on the first save, so
+there is nothing to set up on huggingface.co beforehand — just be logged in.
+Trainer writes its own stub README; replace it with the real card once the
+numbers are in:
+
+```bash
+# fill in the measured chrF++ first
+huggingface-cli upload kinleyrabgay/lotsawa-600m-dz-en-v3 \
+    MODEL_CARD_v3.md README.md
+```
+
+Do **not** publish `dict/` as a Hub dataset. The tables are a derivative of the
+DDC dictionary, which is © Dzongkha Development Commission 2013, all rights
+reserved. Using them as training data is one thing; redistributing the book's
+content as a dataset is another. Model weights are what ships.
+
+---
+
+## Step 11 — Before you terminate the pod
 
 ```bash
 huggingface-cli whoami                      # confirm you are logged in
-ls -la /workspace/ckpt-bt                   # model files present
+ls -la /workspace/ckpt-v3                   # model files present
 cat *_flores.json                           # your results, all in one place
 ```
 

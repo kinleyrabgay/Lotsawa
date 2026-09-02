@@ -28,3 +28,7 @@ huggingface_hub>=0.26.0
 # Installing it satisfies the flag and genuinely speeds up the ~5GB NLLB pull.
 # The alternative is `export HF_HUB_ENABLE_HF_TRANSFER=0`.
 hf_transfer>=0.1.8
+
+# dictionary extraction (extract_dictionary.py, pdf_glyphs.py)
+pymupdf
+fonttools

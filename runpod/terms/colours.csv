@@ -1,22 +1,22 @@
 en,dz_preferred,confidence,coverage,carriers,dz_candidates,review,dz_variants,notes
-red,དམརཔོ་,medium,0.78,328,དམརཔོ་(0.78) | ཨིན(0.20) | ཅིག་(0.16),YES,,
-blue,ཧོནམོ་,low,0.48,212,ཧོནམོ་(0.48) | ཧོནམ་(0.29) | དང་(0.21),YES,,
-green,ལྕང་ཁ་,low,0.45,128,ལྕང་ཁ་(0.45) | གི་(0.19) | ཨིན(0.19),YES,,
-yellow,སེརཔོ་,medium,0.66,64,སེརཔོ་(0.66) | མེ་ཏོག་(0.16) | ཚུ་(0.22),YES,,
-white,དཀརཔོ་,high,0.81,285,དཀརཔོ་(0.81) | དང་(0.21) | ཨིན(0.22),,,
-black,གནགཔོ་,medium,0.79,225,གནགཔོ་(0.79) | ཨིན(0.19) | འདི་(0.34),YES,,
-brown,རྒྱ་སྨུག་,medium,0.75,77,རྒྱ་སྨུག་(0.75) | གི་(0.26) | ནུག(0.16),YES,,
-grey,ཐལ་མདོག་,low,0.21,14,ཐལ་མདོག་(0.21) | སྐྱ་ཐལ་(0.43) | སྦེ་(0.29),YES,,
-pink,ཤ་ཁ་,medium,0.61,31,ཤ་ཁ་(0.61) | མཁོ་མངག་(0.16) | གྱོན་(0.19),YES,,
-purple,བསྲེ་,low,0.15,13,བསྲེ་(0.15) | རྒྱ་སྨུག་(0.92) | ཚོས་གཞི་(0.23),YES,,
-orange colour,,MISSING,,0,,YES - not in corpus,,
-gold,གསེར་,medium,0.78,115,གསེར་(0.78) | གྱི་(0.32) | དང་(0.16),YES,,
-silver,དངུལ་,medium,0.60,48,དངུལ་(0.60) | གྱི་(0.27) | དང་(0.21),YES,,
-maroon,,MISSING,,0,,YES - not in corpus,,
-violet,,MISSING,,2,,YES - not in corpus,,
-turquoise,,MISSING,,3,,YES - not in corpus,,
-dark,གནག་དུང་,low,0.27,267,གནག་དུང་(0.27) | གནག་དུང་དུ་(0.24) | ནང་(0.25),YES,,
-light,གློག་མེ་,low,0.18,431,གློག་མེ་(0.18) | མེ་(0.44) | ཚུ་(0.15),YES,,
-bright,ཚ་དྲགས་,low,0.16,62,ཚ་དྲགས་(0.16) | ལེགས་ཤོམ་(0.19) | འདུག(0.18),YES,,
-pale,སེར་ཐང་,medium,0.53,49,སེར་ཐང་(0.53) | ཐ་མཐོངམ་(0.16) | ཐ་(0.16),YES,,
-colour,ཚོས་གཞི་,medium,0.58,79,ཚོས་གཞི་(0.58) | དང་(0.23) | གྱི་(0.15),YES,,
+red,དམརཔོ་,medium,0.78,328,དམརཔོ་(0.78) | ཨིན(0.20) | ཅིག་(0.16),YES,དམར་ | ཁྲག་མདོག་ | ཚོས་གཞི་དམརཔོ་,DDC p.710 adj; agrees with corpus
+blue,ཧོནམོ་,dict,0.48,212,ཧོནམོ་(0.48) | ཧོནམ་(0.29) | དང་(0.21),,སྔོན་པོ་ | མཐིང་ག་ | གནམ་མདོག་,DDC p.1072 adj; agrees with corpus
+green,ལྕང་ཁ་,dict,0.45,128,ལྕང་ཁ་(0.45) | གི་(0.19) | ཨིན(0.19),,ལྗང་ཁུ་ | རྩྭ་མདོག་ | ལགཔ་གསརཔ་,DDC p.238 adj; agrees with corpus
+yellow,སེརཔོ་,medium,0.66,64,སེརཔོ་(0.66) | མེ་ཏོག་(0.16) | ཚུ་(0.22),YES,སེར་མདོག་ | འདྲོག་དད་ཆེ་མི་ | འདྲོག་ཟེ་,DDC p.1022 adj; agrees with corpus
+white,དཀརཔོ་,high,0.81,285,དཀརཔོ་(0.81) | དང་(0.21) | ཨིན(0.22),YES - dictionary gives དཀར་པོ།,དཀར་མདོག་ཅན་,DDC p.10 adj; corpus kept (high)
+black,གནགཔོ་,medium,0.79,225,གནགཔོ་(0.79) | ཨིན(0.19) | འདི་(0.34),YES,ནག་ | གནག་ | བཀྱག་གནགཔོ་,DDC p.494 adj; agrees with corpus
+brown,རྒྱ་སྨུག་,medium,0.75,77,རྒྱ་སྨུག་(0.75) | གི་(0.26) | ནུག(0.16),YES,,DDC p.169 noun; agrees with corpus
+grey,སྐྱ་ཐལ་,dict,0.21,14,ཐལ་མདོག་(0.21) | སྐྱ་ཐལ་(0.43) | སྦེ་(0.29),,ཐལ་མདོག་ | སྐྱ་ཐལ་ཐལ་ | དཀར་པོ་,DDC p.38 adj; replaced corpus guess ཐལ་མདོག་
+pink,ཤ་ཁ་,medium,0.61,31,ཤ་ཁ་(0.61) | མཁོ་མངག་(0.16) | གྱོན་(0.19),YES,ཚོས་གཞི་ཤ་ཁ་,DDC p.975 adj; agrees with corpus
+purple,རྒྱ་སྨུག་,dict,0.15,13,བསྲེ་(0.15) | རྒྱ་སྨུག་(0.92) | ཚོས་གཞི་(0.23),,སྨུགཔོ་ | ཧོ་སྨུག་ | དམར་སྨུག་,DDC p.169 noun; replaced corpus guess བསྲེ་
+orange colour,ཚལ་ལུ་,dict,,0,,check - corpus proposed something else,ལི་ཝང་ | ལི་ཝང་ཚོས་གཞི་ | ལི་ཁྲི་,DDC p.759 noun (as 'orange')
+gold,གསེར་,medium,0.78,115,གསེར་(0.78) | གྱི་(0.32) | དང་(0.16),YES,གསེར་མདོག་,DDC p.1049 noun; agrees with corpus
+silver,དངུལ་,medium,0.60,48,དངུལ་(0.60) | གྱི་(0.27) | དང་(0.21),YES,དངུལ་མདོག་,DDC p.211 noun [རིན་ཆེན་གཉིས་པ།]; agrees with corpus
+maroon,ཚོས་གཞི་དམར་སྨུག་,dict,,0,,check - corpus proposed something else,རྒྱ་སྨུག་ | ཐར་མེད་དུ་བསྐྱལ་བ་ | བཤུད་,DDC p.776 noun
+violet,ཧོ་སྨུག་,dict,,2,,check - corpus proposed something else,སྤང་རྒྱན་མེ་ཏོག་,DDC p.1071 adj
+turquoise,གཡུ་,dict,,3,,check - corpus proposed something else,གཡུ་མདོག་,DDC p.894 noun
+dark,གནག་དུང་,dict,0.27,267,གནག་དུང་(0.27) | གནག་དུང་དུ་(0.24) | ནང་(0.25),,གནགཔོ་ | མུན་ནག་ | རེ་བ་མེད་པ་,DDC p.493 noun; agrees with corpus
+light,མེ་,dict,0.18,431,གློག་མེ་(0.18) | མེ་(0.44) | ཚུ་(0.15),,ཡང་བ་ | གཉིད་ཐུམ་ | མེ་འོད་,DDC p.691 noun; replaced corpus guess གློག་མེ་
+bright,ལེགས་ཤོམ་,dict,0.16,62,ཚ་དྲགས་(0.16) | ལེགས་ཤོམ་(0.19) | འདུག(0.18),,མདངས་གསལ་ | མདངས་ཅན་ | དཀར་མདངས་ཅན་,DDC p.964 adj; replaced corpus guess ཚ་དྲགས་
+pale,སེར་ཐང་,medium,0.53,49,སེར་ཐང་(0.53) | ཐ་མཐོངམ་(0.16) | ཐ་(0.16),YES - dictionary gives བཀྱག་མེད་མདོག་མེད།,སེར་ཐང་ཐ་ | ས་མཚམས་ | སྐྱ་སེར་,DDC p.18 adj; corpus kept (medium)
+colour,ཚོས་གཞི་,medium,0.58,79,ཚོས་གཞི་(0.58) | དང་(0.23) | གྱི་(0.15),YES,མདོག་ | ཚོན་ | ཁ་དོག་,DDC p.776 noun; agrees with corpus

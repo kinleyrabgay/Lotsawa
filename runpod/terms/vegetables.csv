@@ -1,48 +1,48 @@
 en,dz_preferred,confidence,coverage,carriers,dz_candidates,review,dz_variants,notes
-potato,ཀེ་བའི་,low,0.35,20,ཀེ་བའི་(0.35) | ཀེ་བ་(0.60) | ཁ་ཟས་(0.25),YES,,
-onion,སྒོགཔ་,medium,0.76,17,སྒོགཔ་(0.76) | བཙོ་(0.24) | སྐར་མ་(0.18),YES,,
-chilli,ཨེ་མའི་,low,0.38,8,ཨེ་མའི་(0.38) | ཨེ་མ་(0.38) | འོང་འབབ་(0.25),YES,,
-cabbage,འདམ་མ་,low,0.17,6,འདམ་མ་(0.17) | ཕོད་ཙེ་(0.17) | གནདཔ་བཀལཝ་(0.17),YES,,
-carrot,ལ་ཕུག་,high,0.91,34,ལ་ཕུག་(0.91) | དམརཔོ་(0.97) | དགའ(0.26),,,
-spinach,ཧོན་ཚོད་,high,0.85,13,ཧོན་ཚོད་(0.85) | བཟའ་(0.15) | རིགས་(0.15),,,
-tomato,ལྡེ་ཁུ་,low,0.20,5,ལྡེ་ཁུ་(0.20) | འཁྱེགས་འཁྱེགསཔ་(0.20) | བླམ་བནྡྷ་(0.20),YES,,
-garlic,སྐྱ་སྒོགཔ་,medium,0.75,16,སྐྱ་སྒོགཔ་(0.75) | དྲིམ་(0.19) | དགའ(0.25),YES,,
-ginger,ས་སྒ་,medium,0.50,6,ས་སྒ་(0.50) | སྒའི་ཛིང་(0.17) | གོ་མར་(0.17),YES,,
-radish,,MISSING,,1,,YES - not in corpus,,
-turnip,གཡུང་རྡོག་,high,1.00,4,གཡུང་རྡོག་(1.00) | གནོད་འབུབ་(0.25) | ར་ཏོ་(0.50),,,
-pumpkin,ཀ་ཀུར་,low,0.25,8,ཀ་ཀུར་(0.25) | ཀ་ཀུ་རུ་(0.62) | སྦོམ(0.25),YES,,
-gourd,,MISSING,,0,,YES - not in corpus,,
-bitter gourd,,MISSING,,0,,YES - not in corpus,,
-bottle gourd,,MISSING,,0,,YES - not in corpus,,
-beans,སྲནམ་ཅུམ་,medium,0.58,12,སྲནམ་ཅུམ་(0.58) | ཀཱ་ཕིའི་(0.17) | སོན་(0.25),YES,,
-peas,,MISSING,,2,,YES - not in corpus,,
-mushroom,ཤ་མུ་,high,1.00,9,ཤ་མུ་(1.00) | འཛུགས་སྐྱོང་(0.22) | བྲོཝ་(0.22),,,
-cauliflower,,MISSING,,0,,YES - not in corpus,,
-broccoli,འཚོ་ཐལ་ཐལ་,low,0.20,5,འཚོ་ཐལ་ཐལ་(0.20) | འཁོལ་མི་ཟམ་(0.20) | བོརོ་ཀོལི(0.20),YES,,
-cucumber,གོན་ཅུང་,low,0.33,6,གོན་ཅུང་(0.33) | རིག་མཐུནམ་(0.17) | ཝ་ཊར་ཀིརིསི་(0.17),YES,,
-eggplant,,MISSING,,1,,YES - not in corpus,,
-brinjal,,MISSING,,2,,YES - not in corpus,,
-lettuce,ཧོ་བསྒྱས་,low,0.25,4,ཧོ་བསྒྱས་(0.25) | པད་ཚོད་(1.00) | ཧོ་སྒྱེས་(0.75),YES,,
-asparagus,,MISSING,,1,,YES - not in corpus,,
-beetroot,,MISSING,,0,,YES - not in corpus,,
-celery,,MISSING,,1,,YES - not in corpus,,
-leek,,MISSING,,1,,YES - not in corpus,,
-shallot,,MISSING,,0,,YES - not in corpus,,
-sweet potato,,MISSING,,1,,YES - not in corpus,,
-yam,,MISSING,,0,,YES - not in corpus,,
-taro,,MISSING,,1,,YES - not in corpus,,
-bamboo shoot,,MISSING,,0,,YES - not in corpus,,
-fern,,MISSING,,2,,YES - not in corpus,,
-nettle,,MISSING,,0,,YES - not in corpus,,
-mustard leaf,,MISSING,,0,,YES - not in corpus,,
-coriander,,MISSING,,1,,YES - not in corpus,,
-mint,ཨེཎ་ཊི་,low,0.25,4,ཨེཎ་ཊི་(0.25) | ཨུ་ཤི་ལ་(0.25) | ངོ་གོང་(0.25),YES,,
-parsley,,MISSING,,1,,YES - not in corpus,,
-fenugreek,,MISSING,,0,,YES - not in corpus,,
-chayote,,MISSING,,0,,YES - not in corpus,,
-okra,,MISSING,,0,,YES - not in corpus,,
-capsicum,,MISSING,,1,,YES - not in corpus,,
-corn,གེ་ཟ་,high,0.80,10,གེ་ཟ་(0.80) | འཕྲོད(0.20) | ཨོ་ལ་(0.20),,,
-maize,མོན་བྱཱ་,low,0.20,5,མོན་བྱཱ་(0.20) | རི་ཕག་(0.20) | གེ་ཟ་(1.00),YES,,
-squash,,MISSING,,2,,YES - not in corpus,,
-turmeric,,MISSING,,0,,YES - not in corpus,,
+potato,ཀེ་བ་,dict,0.35,20,ཀེ་བའི་(0.35) | ཀེ་བ་(0.60) | ཁ་ཟས་(0.25),,,DDC p.4 noun; replaced corpus guess ཀེ་བའི་
+onion,སྒོགཔ་,medium,0.76,17,སྒོགཔ་(0.76) | བཙོ་(0.24) | སྐར་མ་(0.18),YES,སྒོག་པ་ | བཙོང་,DDC p.188 noun; agrees with corpus
+chilli,ཨེ་མ་,dict,0.38,8,ཨེ་མའི་(0.38) | ཨེ་མ་(0.38) | འོང་འབབ་(0.25),,,DDC p.1091 noun; replaced corpus guess ཨེ་མའི་
+cabbage,ཀོ་པི་,dict,0.17,6,འདམ་མ་(0.17) | ཕོད་ཙེ་(0.17) | གནདཔ་བཀལཝ་(0.17),check - corpus proposed something else,འདབ་མ་ཀོ་པི་,DDC p.5 noun; replaced corpus guess འདམ་མ་
+carrot,ལ་ཕུག་,high,0.91,34,ལ་ཕུག་(0.91) | དམརཔོ་(0.97) | དགའ(0.26),YES - dictionary gives ལ་ཕུག་དམརཔོ།,,DDC p.940 noun; corpus kept (high)
+spinach,ཧོན་ཚོད་,high,0.85,13,ཧོན་ཚོད་(0.85) | བཟའ་(0.15) | རིགས་(0.15),,པད་ཚོད་,DDC p.1072 noun; agrees with corpus
+tomato,བླམ་བན་ད་,dict,0.20,5,ལྡེ་ཁུ་(0.20) | འཁྱེགས་འཁྱེགསཔ་(0.20) | བླམ་བནྡྷ་(0.20),check - corpus proposed something else,,DDC p.619 noun; replaced corpus guess ལྡེ་ཁུ་
+garlic,སྐྱ་སྒོགཔ་,medium,0.75,16,སྐྱ་སྒོགཔ་(0.75) | དྲིམ་(0.19) | དགའ(0.25),YES,,DDC p.38 noun; agrees with corpus
+ginger,ས་སྒ་,medium,0.50,6,ས་སྒ་(0.50) | སྒའི་ཛིང་(0.17) | གོ་མར་(0.17),YES - dictionary gives ས་ལྒ།,དམར་སེར་ | སེམས་ངར་སློང་བ་ | སྤྲོ་སེམས་བསྐྱེད་བཅུག་པ་,DDC p.1003 noun; corpus kept (medium)
+radish,ལ་ཕུག་,dict,,1,,check - corpus proposed something else,,DDC p.940 noun
+turnip,གཡུང་རྡོག་,high,1.00,4,གཡུང་རྡོག་(1.00) | གནོད་འབུབ་(0.25) | ར་ཏོ་(0.50),,ཨེན་རྡོག་,DDC p.895 noun; agrees with corpus
+pumpkin,ཀ་ཀུ་རུ་,dict,0.25,8,ཀ་ཀུར་(0.25) | ཀ་ཀུ་རུ་(0.62) | སྦོམ(0.25),,,DDC p.1 noun; replaced corpus guess ཀ་ཀུར་
+gourd,ཀུ་,dict,,0,,check - corpus proposed something else,,DDC p.2 noun
+bitter gourd,ཁག་ཏེམ་,dict,,0,,check - corpus proposed something else,,DDC p.65 noun
+bottle gourd,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
+beans,སྲནམ་ཅུམ་,medium,0.58,12,སྲནམ་ཅུམ་(0.58) | ཀཱ་ཕིའི་(0.17) | སོན་(0.25),YES,,DDC p.1028 noun (as 'bean'); agrees with corpus
+peas,བོད་སྲནམ་,dict,,2,,check - corpus proposed something else,སྲནམ་,DDC p.607 noun (as 'pea')
+mushroom,ཤ་མུ་,high,1.00,9,ཤ་མུ་(1.00) | འཛུགས་སྐྱོང་(0.22) | བྲོཝ་(0.22),,ཡར་རྒྱས་ | ཡར་འཕེལ་ | ཁ་གྲངས་འཕར་བ་,DDC p.976 noun; agrees with corpus
+cauliflower,མེ་ཏོག་ཀོ་པི་,dict,,0,,check - corpus proposed something else,,DDC p.692 noun
+broccoli,མེ་ཏོག་ཧོན་ཚོད་,dict,0.20,5,འཚོ་ཐལ་ཐལ་(0.20) | འཁོལ་མི་ཟམ་(0.20) | བོརོ་ཀོལི(0.20),check - corpus proposed something else,,DDC p.692 noun; replaced corpus guess འཚོ་ཐལ་ཐལ་
+cucumber,གོན་,dict,0.33,6,གོན་ཅུང་(0.33) | རིག་མཐུནམ་(0.17) | ཝ་ཊར་ཀིརིསི་(0.17),check - corpus proposed something else,,DDC p.115 noun; replaced corpus guess གོན་ཅུང་
+eggplant,དོ་ལོམ་,dict,,1,,check - corpus proposed something else,དོ་ལོམ་ཤིང་,DDC p.403 noun
+brinjal,དོ་ལོམ་,dict,,2,,check - corpus proposed something else,,DDC p.403 noun
+lettuce,ཧོ་སྒྱེས་པད་ཚོད་,dict,0.25,4,ཧོ་བསྒྱས་(0.25) | པད་ཚོད་(1.00) | ཧོ་སྒྱེས་(0.75),check - corpus proposed something else,,DDC p.1071 noun; replaced corpus guess ཧོ་བསྒྱས་
+asparagus,ཉ་ཁག་ཅུ་,dict,,1,,check - corpus proposed something else,,DDC p.281 noun
+beetroot,གཡུང་རྡོག་,dict,,0,,check - corpus proposed something else,,DDC p.895 noun
+celery,པད་ཚོད་འདབ་རིང་,dict,,1,,check - corpus proposed something else,,DDC p.524 noun
+leek,,MISSING,,1,,YES - not in corpus,,not in DDC dictionary
+shallot,སྒོག་ཆུང་,dict,,0,,check - corpus proposed something else,,DDC p.188 noun
+sweet potato,ཀེ་བ་མངརམོ་,dict,,1,,check - corpus proposed something else,,DDC p.4 noun
+yam,ཚལ་མ་ཀེ་བ་,dict,,0,,check - corpus proposed something else,,DDC p.758 noun
+taro,,MISSING,,1,,YES - not in corpus,,not in DDC dictionary
+bamboo shoot,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
+fern,ཀེརམ་,dict,,2,,check - corpus proposed something else,ནགས་སྐྱེས་ | སྤང་སྐྱེས་,DDC p.4 noun
+nettle,ཟྭོ་ཆག་,dict,,0,,check - corpus proposed something else,ཙིགཔ་ཟ་བཅུག་པ་,DDC p.843 noun
+mustard leaf,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
+coriander,འོད་སི་,dict,,1,,check - corpus proposed something else,,DDC p.865 noun
+mint,ཨུ་ཤི་ལ་,dict,0.25,4,ཨེཎ་ཊི་(0.25) | ཨུ་ཤི་ལ་(0.25) | ངོ་གོང་(0.25),,ཏི་རུ་བཟོ་ཁང་ | ཏི་རུའི་པར་ཁང་ | ཨུ་ཤི་གུ་རམ་,DDC p.1091 noun; replaced corpus guess ཨེཎ་ཊི་
+parsley,འོད་སི་,dict,,1,,check - corpus proposed something else,,DDC p.865 noun
+fenugreek,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
+chayote,,MISSING,,0,,YES - not in corpus,,not in DDC dictionary
+okra,གླང་ཅུ་རྭཝ་,dict,,0,,check - corpus proposed something else,གླང་ཅུ་རྭཝ་གི་སོན་,DDC p.129 noun
+capsicum,ཨེ་མ་མངརམོ་,dict,,1,,check - corpus proposed something else,,DDC p.1091 noun
+corn,གེ་ཟ་,high,0.80,10,གེ་ཟ་(0.80) | འཕྲོད(0.20) | ཨོ་ལ་(0.20),,འབྲུ་རིགས་ | ཤ་འབུར་ | ཨ་ཤོམ་,DDC p.109 noun; agrees with corpus
+maize,གེ་ཟ་,dict,0.20,5,མོན་བྱཱ་(0.20) | རི་ཕག་(0.20) | གེ་ཟ་(1.00),,ཨ་ཤོམ་,DDC p.109 noun; replaced corpus guess མོན་བྱཱ་
+squash,གྱང་རྩེད་,dict,,2,,check - corpus proposed something else,གྱང་རིལ་ | ཀ་ཀུ་རུ་ | ཤིང་འབྲས་ཁུ་བ་,DDC p.116 noun
+turmeric,ཡུང་སྒ་,dict,,0,,check - corpus proposed something else,,DDC p.883 noun
